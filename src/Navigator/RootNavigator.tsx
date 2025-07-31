@@ -1,14 +1,28 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { Image } from "react-native";
 import HomeScreen from "../screens/HomeScreen";
 import LeaderBoard from "../screens/LeaderBoard";
 import PastQuestion from "../screens/PastQuestion";
 import Profile from "../screens/Profile";
+import LoginScreen from "../screens/LoginScreen";
+import SplashScreen from "../screens/SplashScreen";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-export default function BottomTab() {
+export default function RootNavigator() {
+  return (
+    <Stack.Navigator>
+          <Stack.Screen name="HomeTab" component={BottomTab} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Splash" component={SplashScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function BottomTab() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

@@ -7,19 +7,26 @@ const screenHeight = Math.round(height);
 export const SCREEN_WIDTH = width;
 export const SCREEN_HEIGHT = height;
 
-export const Colors = {
-  primary: "#2F75FD", //blue
-  secondary: "#0F48B8", //dark-blue
-  green: "#27ae60",
-  lightBlue: "#5f97fe", //light blue
-  veryLight: "#CDE1FF", //very light blue
-  extraLight: "#F0FAFF",
-  white: "#FFFFFF", //white
-  black: "#000000", //black
-  gray: "#808080", //gray
-  red: "#b40c0cff",
-  dangerRed: "#F92525",
+
+export const COLORS = {
+  white: "#ffffff",
+  black: "#000",
+  primary: "#063A4F",
+  primary2: "#40196D",
+  sky: "#F1FAF9",
+  orange: "#ff7040",
+  secondary: "#00caf2",
+  green: "#47cc49",
+  green2: "#038654",
+  gray: "#EFF2F7",
+  chocolate: "#5d5c6c",
+  chocolateBackground: "#CECFCD",
+  grey2: "#f6f5fa",
+  grey3: "#efefef",
+  gray4: "#B4B5B5",
+  red: "red",
 };
+
 export const Sizes = {
   // global sizes
   base: screenHeight * 0.01, //for margin

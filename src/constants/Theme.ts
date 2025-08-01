@@ -71,12 +71,12 @@ export const Sizes = {
 export const FONTS = {
   navTitle: { fontFamily: "Montserrat-Regular", fontSize: Sizes.navTitle },
   largeTitleBold: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat-Bold",
     fontSize: Sizes.h1 * 1.5,
     lineHeight: screenHeight * 0.05,
   },
   h1: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "Montserrat-Medium",
     fontSize: Sizes.h1,
     lineHeight: screenHeight * 0.05,
   },
@@ -101,6 +101,7 @@ export const FONTS = {
     lineHeight: screenHeight * 0.025,
   },
   // BODY
+
   body: {
     fontFamily: "Montserrat-Medium",
     fontSize: Sizes.body1 * 1.2,

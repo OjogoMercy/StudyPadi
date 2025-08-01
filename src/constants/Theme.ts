@@ -8,7 +8,7 @@ export const SCREEN_WIDTH = width;
 export const SCREEN_HEIGHT = height;
 
 
-export const COLORS = {
+export const Colors = {
   white: "#ffffff",
   black: "#000",
   primary: "#063A4F",
@@ -67,6 +67,105 @@ export const Sizes = {
   // app dimensions
   width,
   height,
+};
+export const FONTS = {
+  navTitle: { fontFamily: "Montserrat-Regular", fontSize: Sizes.navTitle },
+  largeTitleBold: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.h1 * 1.5,
+    lineHeight: screenHeight * 0.05,
+  },
+  h1: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: Sizes.h1,
+    lineHeight: screenHeight * 0.05,
+  },
+  h2: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: Sizes.h2,
+    lineHeight: screenHeight * 0.0375,
+  },
+  h3: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: Sizes.h3,
+    lineHeight: screenHeight * 0.025,
+  },
+  h4: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: Sizes.h4,
+    lineHeight: screenHeight * 0.025,
+  },
+  h5: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: Sizes.h5,
+    lineHeight: screenHeight * 0.025,
+  },
+  // BODY
+  body: {
+    fontFamily: "Montserrat-Medium",
+    fontSize: Sizes.body1 * 1.2,
+    lineHeight: 39,
+  },
+  body1: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body1,
+    lineHeight: 36,
+  },
+  body1a: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body1 * 0.9,
+    lineHeight: 30,
+  },
+  body2: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body2,
+    lineHeight: 30,
+  },
+  body2a: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body2 * 0.95,
+    lineHeight: 30,
+  },
+  body2b: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body2 * 0.935,
+    lineHeight: 30,
+  },
+  body2c: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body2 * 1.3,
+    lineHeight: 30,
+  },
+  body3: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body3 * 1.05,
+    lineHeight: 18,
+  },
+  body3a: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body3a,
+    lineHeight: 18,
+  },
+  body3b: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body3b,
+    lineHeight: 18,
+  },
+  body4: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body4,
+    lineHeight: 18,
+  },
+  body5: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body5,
+    lineHeight: 18,
+  },
+  body6: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: Sizes.body6 * 1.2,
+    lineHeight: 18,
+  },
 };
 
 const appTheme = [Colors, Sizes];

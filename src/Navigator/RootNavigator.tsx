@@ -8,6 +8,7 @@ import PastQuestion from "../screens/PastQuestion";
 import Profile from "../screens/Profile";
 import LoginScreen from "../screens/LoginScreen";
 import SplashScreen from "../screens/SplashScreen";
+import Icons from "../constants/Icons";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();

@@ -11,12 +11,12 @@ import React from "react";
 React.useEffect(() => { 
   const loadFonts = async () => {
   await Font.loadAsync({
-    'Montserrat-Regular': require('@/assets/fonts/Montserrat-Regular.ttf'),
-    'Montserrat-Bold': require('@/assets/fonts/Montserrat-Bold.ttf'),
-    'Montserrat-Medium': require('@/assets/fonts/Montserrat-Medium.ttf'),
-    'Montserrat-SemiBold': require('@/assets/fonts/Montserrat-SemiBold.ttf'),
+    'Montserrat-Regular': require('../src/assets/fonts/Montserrat-Regular.ttf'),
+    'Montserrat-Bold': require('../src/assets/fonts/Montserrat-Bold.ttf'),
+    'Montserrat-Medium': require('../src/assets/fonts/Montserrat-Medium.ttf'),
   });
-}
+  }
+  loadFonts()
 }, []);
 
 export default function RootLayout() {

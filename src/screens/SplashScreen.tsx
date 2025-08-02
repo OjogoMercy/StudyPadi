@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View,Animated } from 'react-native'
+import { Image, StyleSheet, Text, View, Animated } from 'react-native';
 import React, { useEffect, useRef } from 'react'
 import { Colors ,FONTS, SCREEN_HEIGHT, SCREEN_WIDTH} from '../constants/Theme'
 import { Images } from '../constants/Images'
@@ -7,7 +7,6 @@ const SplashScreen = () => {
 const imageOpacity = useRef(new Animated.Value(0)).current;
 const textOpacity = useRef(new Animated.Value(0)).current;
 const textTranslateY = useRef(new Animated.Value(50)).current;
-
 
       useEffect(() => {
     // Fade in image

@@ -7,28 +7,29 @@ import { useNavigation } from 'expo-router';
 
 const SignUp = () => {
   const navigation = useNavigation()
-  const [active,setActive] = React.useState(false)
+  const [active, setActive] = React.useState<"A" | "B" | null>(null);
   return (
     <View style={general.container}>
       <Text style={styles.title}>Create an Account</Text>
       <View style={{ flexDirection: "row", width: SCREEN_WIDTH * 0.9 }}>
         <View style={{ width: SCREEN_WIDTH * 0.45 }}>
           <CustomButton
-            title={'Email'}
-            // onPress={undefined}
-            active={active}
+            title={"Email"}
+            onPress={() => setActive("A")}
+            active={active === "A"}
             disabled={false}
           />
         </View>
         <View style={{ width: SCREEN_WIDTH * 0.45 }}>
           <CustomButton
-            title={'Mobile'}
-            // onPress={undefined}
-            active={active}
+            title={"Mobile"}
+            onPress={() => setActive("B")}
+            active={active === "B"}
             disabled={false}
           />
         </View>
       </View>
+      
     </View>
   );
 }

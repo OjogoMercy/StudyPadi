@@ -1,14 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import general from '../constants/General'
+import { Colors, Sizes, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
 
 const SignUp = () => {
   return (
-    <View>
-      <Text>SignUp</Text>
+    <View style={general.container}>
+      <Text style={styles.title}>Create an Account</Text>
+      <View></View>
     </View>
   )
 }
 
 export default SignUp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  title: {
+    ...FONTS.h1
+  },
+  
+})

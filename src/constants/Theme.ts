@@ -76,7 +76,7 @@ export const FONTS = {
     lineHeight: screenHeight * 0.05,
   },
   h1: {
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Poppins-Bold",
     fontSize: Sizes.h1,
     lineHeight: screenHeight * 0.05,
   },

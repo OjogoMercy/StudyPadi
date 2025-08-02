@@ -8,6 +8,7 @@ import PastQuestion from "../screens/PastQuestion";
 import Profile from "../screens/Profile";
 import LoginScreen from "../screens/LoginScreen";
 import SplashScreen from "../screens/SplashScreen";
+import SignUp from "../screens/SignUp";
 import Icons from "../constants/Icons";
 
 const Tab = createBottomTabNavigator();
@@ -15,10 +16,14 @@ const Stack = createNativeStackNavigator();
 
 export default function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="Splash">
-          <Stack.Screen name="HomeTab" component={BottomTab} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Splash" component={SplashScreen} />
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Splash"
+    >
+      <Stack.Screen name="HomeTab" component={BottomTab} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Splash" component={SplashScreen} />
+      <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
   );
 }

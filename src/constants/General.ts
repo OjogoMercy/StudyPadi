@@ -15,7 +15,7 @@ const general = StyleSheet.create({
   },
   title: {
     fontSize: SCREEN_WIDTH * 0.06,
-    color: "#333333",
+    color: Colors.gray,
     marginBottom: SCREEN_HEIGHT * 0.02,
   },
   text: {
@@ -28,15 +28,14 @@ const general = StyleSheet.create({
     paddingHorizontal: SCREEN_WIDTH * 0.05,
     borderRadius: SCREEN_WIDTH * 0.03,
     alignItems: "center",
-      marginTop: SCREEN_HEIGHT * 0.02,
-
+    marginTop: SCREEN_HEIGHT * 0.02,
   },
   buttonText: {
     color: Colors.white,
-    fontWeight: "500",
+    fontWeight: "bold",
   },
   input: {
-    borderColor: "#cccccc",
+    borderColor: Colors.lightGray,
     borderWidth: 1,
     borderRadius: SCREEN_WIDTH * 0.02,
     paddingHorizontal: SCREEN_WIDTH * 0.04,
@@ -46,6 +45,25 @@ const general = StyleSheet.create({
   },
   disabled: {
     backgroundColor: Colors.sky,
+  },
+  label: {
+    fontSize: SCREEN_WIDTH * 0.035,
+    color: Colors.lightGray,
+    marginBottom: SCREEN_HEIGHT * 0.008,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: Colors.lightGray,
+    borderRadius: SCREEN_WIDTH * 0.02,
+    paddingHorizontal: SCREEN_WIDTH * 0.04,
+    paddingVertical: SCREEN_HEIGHT * 0.015,
+    fontSize: SCREEN_WIDTH * 0.04,
+    color: Colors.black,
+  },
+  error: {
+    color: "#FF3B30",
+    fontSize: SCREEN_WIDTH * 0.03,
+    marginTop: SCREEN_HEIGHT * 0.005,
   },
 });
 

@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { SCREEN_HEIGHT, SCREEN_WIDTH, Colors } from '../constants/Theme'
 import general from "../constants/General";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 type Props = {
   label?: string;
@@ -25,23 +26,33 @@ const CustomInput = ({
   label,
   value,
   onChangeText,
-  placeholder = "",
+  placeholder,
   secureTextEntry = false,
   inputStyle,
   containerStyle,
-  error,
+  error,iconName
 }: Props) => {
   return (
     <View style={[styles.container, containerStyle]}>
       {label && <Text style={general.label}>{label}</Text>}
-      <TextInput
-        style={[general.textInput, inputStyle]}
-        value={value}
-        onChangeText={onChangeText}
-        placeholder={placeholder}
-        secureTextEntry={secureTextEntry}
-        placeholderTextColor="#999"
-      />
+      <View style={general.inputWrapper}>
+        {iconName && (
+          <MaterialIcons
+            name={iconName}
+            size={SCREEN_WIDTH * 0.06}
+            color="#888"
+            style={general.icon}
+          />
+        )}
+        <TextInput
+          style={[general.input, inputStyle]}
+          value={value}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          secureTextEntry={secureTextEntry}
+          placeholderTextColor="#999"
+        />
+      </View>
       {error && <Text style={general.error}>{error}</Text>}
     </View>
   );

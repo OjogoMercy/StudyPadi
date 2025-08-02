@@ -1,13 +1,16 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import general from '../constants/General'
 import { Colors, Sizes, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
 import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
+import CustomInput from '../components/CustomInput';
 
 const SignUp = () => {
   const navigation = useNavigation()
   const [active, setActive] = React.useState<"A" | "B" | null>(null);
+  const [firstName,setFirstName] = useState('')
+  const [lastName, setLastName] = useState("");
   return (
     <View style={general.container}>
       <Text style={styles.title}>Create an Account</Text>
@@ -29,7 +32,7 @@ const SignUp = () => {
           />
         </View>
       </View>
-      
+      <CustomInput value={firstName} onChangeText={setFirstName} placeholder='Enter your first name'/>
     </View>
   );
 }

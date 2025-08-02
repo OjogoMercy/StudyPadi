@@ -65,6 +65,18 @@ const general = StyleSheet.create({
     fontSize: SCREEN_WIDTH * 0.03,
     marginTop: SCREEN_HEIGHT * 0.005,
   },
+  icon: {
+    marginRight: SCREEN_WIDTH * 0.02,
+  },
+  inputWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: SCREEN_WIDTH * 0.02,
+    paddingHorizontal: SCREEN_WIDTH * 0.03,
+    backgroundColor: "#fff",
+  },
 });
 
 export default general;

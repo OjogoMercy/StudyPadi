@@ -32,7 +32,12 @@ const SignUp = () => {
           />
         </View>
       </View>
-      <CustomInput value={firstName} onChangeText={setFirstName} placeholder='Enter your first name'/>
+      <CustomInput
+        value={firstName}
+        onChangeText={setFirstName}
+        placeholder="Enter your first name"
+        iconName={'person'}
+      />
     </View>
   );
 }

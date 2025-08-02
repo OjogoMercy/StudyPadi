@@ -20,6 +20,7 @@ type Props = {
   inputStyle?: TextStyle;
   containerStyle?: ViewStyle;
   error?: string;
+  iconName?: string;
 };
 
 const CustomInput = ({
@@ -38,7 +39,7 @@ const CustomInput = ({
       <View style={general.inputWrapper}>
         {iconName && (
           <MaterialIcons
-            name={iconName}
+            name={iconName as any}
             size={SCREEN_WIDTH * 0.06}
             color="#888"
             style={general.icon}

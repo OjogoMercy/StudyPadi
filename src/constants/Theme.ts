@@ -76,12 +76,12 @@ export const FONTS = {
     lineHeight: screenHeight * 0.05,
   },
   h1: {
-    fontFamily: "Poppins-Bold",
+    fontFamily: "Poppins-SemiBold",
     fontSize: Sizes.h1,
     lineHeight: screenHeight * 0.05,
   },
   h2: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "Poppins-SemiBold",
     fontSize: Sizes.h2,
     lineHeight: screenHeight * 0.0375,
   },

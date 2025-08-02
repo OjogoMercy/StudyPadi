@@ -13,11 +13,21 @@ const SignUp = () => {
       <Text style={styles.title}>Create an Account</Text>
       <View style={{ flexDirection: "row", width: SCREEN_WIDTH * 0.9 }}>
         <View style={{ width: SCREEN_WIDTH * 0.45 }}>
-          <CustomButton title={"Email"} onPress={undefined} />
+          <CustomButton
+            title={'Email'}
+            // onPress={undefined}
+            active={active}
+            disabled={false}
+          />
         </View>
         <View style={{ width: SCREEN_WIDTH * 0.45 }}>
-          <CustomButton title={"Email"} onPress={() => { setActive(!active)}} />
-        </View> 
+          <CustomButton
+            title={'Mobile'}
+            // onPress={undefined}
+            active={active}
+            disabled={false}
+          />
+        </View>
       </View>
     </View>
   );

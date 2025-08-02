@@ -7,30 +7,39 @@ import {
   TextStyle,
 } from "react-native";
 import general from "../constants/General";
+import { Colors } from "../constants/Theme";
 
-interface CustomButtonProps {
+interface Props {
   title: string;
   onPress: () => void;
   buttonStyle?: ViewStyle;
   textStyle?: TextStyle;
   disabled?: boolean;
+  active?:boolean
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({
+const CustomButton = ({
   title,
   onPress,
-  buttonStyle,
-  textStyle,
+  active = false,
   disabled = false,
-}) => {
+}: Props) => {
+  const dynamicStyle = {
+    backgroundColor: active ? Colors.primary: Colors.white,
+    opacity: disabled ? 0.5 : 1,
+  };
+
+  const dynamicTextStyle = {
+    color: active ? Colors.white : Colors.black
+  };
   return (
     <TouchableOpacity
-      style={[general.button, buttonStyle, disabled && general.disabled]}
+      style={[general.button, dynamicStyle]}
       onPress={onPress}
       activeOpacity={0.7}
       disabled={disabled}
     >
-      <Text style={[general.buttonText, textStyle]}>{title}</Text>
+      <Text style={[general.buttonText, dynamicTextStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };

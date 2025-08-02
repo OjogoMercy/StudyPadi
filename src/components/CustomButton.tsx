@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
+import general from "../constants/General";
 
 interface CustomButtonProps {
   title: string;
@@ -24,32 +25,16 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.button, buttonStyle, disabled && styles.disabled]}
+      style={[general.button, buttonStyle, disabled && general.disabled]}
       onPress={onPress}
-      activeOpacity={0.5}
+      activeOpacity={0.7}
       disabled={disabled}
     >
-      <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+      <Text style={[general.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#007AFF",
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  disabled: {
-    backgroundColor: "#A0A0A0",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "500",
-  },
-});
+const styles = StyleSheet.create({});
 
 export default CustomButton;

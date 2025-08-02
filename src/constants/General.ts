@@ -23,15 +23,16 @@ const general = StyleSheet.create({
     color: Colors.black,
   },
   button: {
-    backgroundColor: "#007AFF",
-    paddingVertical: SCREEN_HEIGHT * 0.015,
+    backgroundColor: Colors.primary,
+    paddingVertical: SCREEN_HEIGHT * 0.02,
     paddingHorizontal: SCREEN_WIDTH * 0.05,
     borderRadius: SCREEN_WIDTH * 0.03,
     alignItems: "center",
-    marginTop: SCREEN_HEIGHT * 0.02,
+      marginTop: SCREEN_HEIGHT * 0.02,
+
   },
   buttonText: {
-    color: "#ffffff",
+    color: Colors.white,
     fontWeight: "500",
   },
   input: {
@@ -42,6 +43,9 @@ const general = StyleSheet.create({
     paddingVertical: SCREEN_HEIGHT * 0.015,
     fontSize: SCREEN_WIDTH * 0.04,
     marginBottom: SCREEN_HEIGHT * 0.02,
+  },
+  disabled: {
+    backgroundColor: Colors.sky,
   },
 });
 

@@ -9,7 +9,7 @@ import Profile from "../screens/Profile";
 import LoginScreen from "../screens/LoginScreen";
 import SplashScreen from "../screens/SplashScreen";
 import SignUp from "../screens/SignUp";
-import Icons from "../constants/Icons";
+import { Icons } from "../constants/Icons";
 import Verification from "../screens/Verification";
 
 const Tab = createBottomTabNavigator();
@@ -36,10 +36,10 @@ function BottomTab() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-          if (route.name === "Home") iconName = Icons.home;
-          else if (route.name === "Services") iconName = Icons.shop;
-          else if (route.name === "Transactions") iconName = Icons.walletIcon;
-          else if (route.name === "Profile") iconName = Icons.user;
+          if (route.name === "Home") iconName = Icons.about;
+          else if (route.name === "Services") iconName = Icons.about;
+          else if (route.name === "Transactions") iconName = Icons.about2;
+          else if (route.name === "Profile") iconName = Icons.about2;
           return (
             <Image
               source={iconName}

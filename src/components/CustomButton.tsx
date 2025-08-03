@@ -21,7 +21,7 @@ interface Props {
 const CustomButton = ({
   title,
   onPress,
-  active = false,
+  active = true,
   disabled = false,
 }: Props) => {
   const dynamicStyle = {

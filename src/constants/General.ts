@@ -38,7 +38,8 @@ const general = StyleSheet.create({
     borderRadius: SCREEN_WIDTH * 0.02,
     paddingHorizontal: SCREEN_WIDTH * 0.04,
     paddingVertical: SCREEN_HEIGHT * 0.025,
-    fontSize: SCREEN_WIDTH * 0.04,
+      fontSize: SCREEN_WIDTH * 0.04,
+    flex:1
   },
   disabled: {
     backgroundColor: Colors.sky,

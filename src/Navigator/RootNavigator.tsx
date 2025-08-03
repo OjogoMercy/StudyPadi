@@ -10,6 +10,7 @@ import LoginScreen from "../screens/LoginScreen";
 import SplashScreen from "../screens/SplashScreen";
 import SignUp from "../screens/SignUp";
 import Icons from "../constants/Icons";
+import Verification from "../screens/Verification";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ export default function RootNavigator() {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="Verification" component={Verification} />
     </Stack.Navigator>
   );
 }

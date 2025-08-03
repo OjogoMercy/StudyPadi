@@ -34,7 +34,7 @@ const SignUp = () => {
           />
         </View>
       </View>
-      <View style={{marginTop:SCREEN_HEIGHT* 0.05}}>
+      <View style={{ marginTop: SCREEN_HEIGHT * 0.05 }}>
         <CustomInput
           value={firstName}
           onChangeText={setFirstName}
@@ -58,10 +58,13 @@ const SignUp = () => {
           onChangeText={setPassword}
           placeholder="Enter Your Password"
           iconName={"lock-outline"}
-          secureTextEntry ={true}
+          secureTextEntry={true}
         />
       </View>
-      <CustomButton title={'Create Account'} onPress={() => navigation.navigate('Home') active={active} }/>
+      <CustomButton
+        title={"Create Account"}
+        onPress={() => navigation.navigate("Verification")}
+      />
     </View>
   );
 }

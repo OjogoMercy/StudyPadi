@@ -6,7 +6,19 @@ import CustomButton from "../components/CustomButton";
 import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useForm, Controller } from "react-hook-form";
 const LoginScreen = () => {
+    const {
+      control,
+      handleSubmit,
+      formState: { errors },
+    } = useForm({
+      defaultValues: {
+        firstName: "",
+        lastName: "",
+      },
+    });
+    const onSubmit = (data) => console.log(data);
   const [active, setActive] = React.useState("A");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +50,23 @@ const LoginScreen = () => {
         </View>
       </View>
       <View style={{ marginTop: SCREEN_HEIGHT * 0.05 }}>
-        <CustomInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Enter your email"
-          iconName={"mail-outline"}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <CustomInput
+              placeholder="First name"
+              onChangeText={onChange}
+              value={value}
+              iconName={"mail-outline"}
+            />
+          )}
+          name="firstName"
         />
+        {errors.firstName && <Text>This is required.</Text>}
+
         <CustomInput
           value={password}
           onChangeText={setPassword}
@@ -71,7 +94,7 @@ const LoginScreen = () => {
         </View>
         <Text style={{ color: Colors.primary }}>Password</Text>
       </View>
-      <CustomButton title="Sign In" onPress={() => navigation.navigate('HomeTab')}/>
+      <CustomButton title="Sign In" onPress={handleSubmit(onSubmit)} />
       <View
         style={{
           flexDirection: "row",
@@ -108,9 +131,7 @@ const LoginScreen = () => {
     </View>
   );
 };
-
 export default LoginScreen;
-
 const styles = StyleSheet.create({
   text: {
     ...FONTS.body4,

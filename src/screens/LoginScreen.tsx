@@ -6,7 +6,6 @@ import CustomButton from "../components/CustomButton";
 import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-
 const LoginScreen = () => {
   const [active, setActive] = React.useState("A");
   const [email, setEmail] = useState("");

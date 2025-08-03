@@ -31,7 +31,7 @@ const textTranslateY = useRef(new Animated.Value(50)).current;
     });
 
     const timer = setTimeout(() => {
-      navigation.replace("SignUp");
+      navigation.replace("IntroScreen");
     }, 5000);
 
     return () => clearTimeout(timer);

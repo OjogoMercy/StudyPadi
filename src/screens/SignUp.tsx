@@ -8,9 +8,11 @@ import CustomInput from '../components/CustomInput';
 
 const SignUp = () => {
   const navigation = useNavigation()
-  const [active, setActive] = React.useState<"A" | "B" | null>(null);
+  const [active, setActive] = React.useState('A');
   const [firstName,setFirstName] = useState('')
   const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState('')
+  const [password,setPassword] = useState('')
   return (
     <View style={general.container}>
       <Text style={styles.title}>Create an Account</Text>
@@ -32,12 +34,34 @@ const SignUp = () => {
           />
         </View>
       </View>
-      <CustomInput
-        value={firstName}
-        onChangeText={setFirstName}
-        placeholder="Enter your first name"
-        iconName={'person'}
-      />
+      <View style={{marginTop:SCREEN_HEIGHT* 0.05}}>
+        <CustomInput
+          value={firstName}
+          onChangeText={setFirstName}
+          placeholder="Enter your first name"
+          iconName={"person"}
+        />
+        <CustomInput
+          value={lastName}
+          onChangeText={setLastName}
+          placeholder="Enter your last name"
+          iconName={"person"}
+        />
+        <CustomInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Enter your email"
+          iconName={"mail-outline"}
+        />
+        <CustomInput
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Enter Your Password"
+          iconName={"lock-outline"}
+          secureTextEntry ={true}
+        />
+      </View>
+      <CustomButton title={'Create Account'} onPress={() => navigation.navigate('Home') active={active} }/>
     </View>
   );
 }

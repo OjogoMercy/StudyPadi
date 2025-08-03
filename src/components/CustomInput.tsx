@@ -41,7 +41,7 @@ const CustomInput = ({
           <MaterialIcons
             name={iconName as any}
             size={SCREEN_WIDTH * 0.06}
-            color="#888"
+            color={Colors.black}
             style={general.icon}
           />
         )}
@@ -51,7 +51,7 @@ const CustomInput = ({
           onChangeText={onChangeText}
           placeholder={placeholder}
           secureTextEntry={secureTextEntry}
-          placeholderTextColor="#999"
+          placeholderTextColor={Colors.black}
         />
       </View>
       {error && <Text style={general.error}>{error}</Text>}

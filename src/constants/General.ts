@@ -35,13 +35,10 @@ const general = StyleSheet.create({
     fontWeight: "bold",
   },
   input: {
-    borderColor: Colors.lightGray,
-    borderWidth: 1,
     borderRadius: SCREEN_WIDTH * 0.02,
     paddingHorizontal: SCREEN_WIDTH * 0.04,
-    paddingVertical: SCREEN_HEIGHT * 0.015,
+    paddingVertical: SCREEN_HEIGHT * 0.025,
     fontSize: SCREEN_WIDTH * 0.04,
-    marginBottom: SCREEN_HEIGHT * 0.02,
   },
   disabled: {
     backgroundColor: Colors.sky,
@@ -72,10 +69,10 @@ const general = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: Colors.black,
     borderRadius: SCREEN_WIDTH * 0.02,
     paddingHorizontal: SCREEN_WIDTH * 0.03,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
   },
 });
 

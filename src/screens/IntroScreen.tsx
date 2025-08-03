@@ -9,7 +9,7 @@ import { useNavigation } from 'expo-router';
 const IntroScreen = () => {
     const navigation = useNavigation()
   return (
-    <View style={general.container}>
+    <View style={[general.container, { backgroundColor: Colors.sky }]}>
       <Text style={{ alignSelf: "center" }}>English (NG)</Text>
       <Image
         source={Images.onboard1}
@@ -20,14 +20,26 @@ const IntroScreen = () => {
           alignSelf: "center",
         }}
       />
-      <View>
+      <View style={{marginTop:SCREEN_HEIGHT*0.1}}>
         <CustomButton
           title="Log into your account"
           onPress={() => navigation.navigate("Login")}
+          buttonStyle={{
+            backgroundColor: Colors.sky,
+            borderColor: Colors.black,
+            borderWidth: SCREEN_HEIGHT * 0.001,borderRadius:SCREEN_WIDTH*0.1
+          }}
+          textStyle={{ color: Colors.black }}
         />
         <CustomButton
           title="Create new account"
           onPress={() => navigation.navigate("SignUp")}
+          buttonStyle={{
+            backgroundColor: Colors.sky,
+            borderColor: Colors.primary,
+            borderWidth: SCREEN_HEIGHT * 0.001,borderRadius:SCREEN_WIDTH*0.1
+          }}
+          textStyle={{ color: Colors.primary }}
         />
       </View>
     </View>

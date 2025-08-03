@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ViewStyle,
   TextStyle,
+  KeyboardAvoidingView,
 } from "react-native";
 import general from "../constants/General";
 import { Colors } from "../constants/Theme";
@@ -33,14 +34,16 @@ const CustomButton = ({
     color: active ? Colors.white : Colors.black
   };
   return (
-    <TouchableOpacity
-      style={[general.button, dynamicStyle]}
-      onPress={onPress}
-      activeOpacity={0.7}
-      disabled={disabled}
-    >
-      <Text style={[general.buttonText, dynamicTextStyle]}>{title}</Text>
-    </TouchableOpacity>
+    <KeyboardAvoidingView>
+      <TouchableOpacity
+        style={[general.button, dynamicStyle]}
+        onPress={onPress}
+        activeOpacity={0.7}
+        disabled={disabled}
+      >
+        <Text style={[general.buttonText, dynamicTextStyle]}>{title}</Text>
+      </TouchableOpacity>
+    </KeyboardAvoidingView>
   );
 };
 

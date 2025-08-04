@@ -5,7 +5,7 @@ const general = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: SCREEN_WIDTH * 0.05,
-    paddingVertical: SCREEN_HEIGHT * 0.04,
+    paddingVertical: SCREEN_HEIGHT * 0.03,
     backgroundColor: Colors.white,
   },
   centered: {

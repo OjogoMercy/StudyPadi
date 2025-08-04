@@ -13,7 +13,6 @@ const HomeScreen = () => {
       <View
         style={{
           flexDirection: "row",
-          padding: 10,
           alignItems: "center",
           justifyContent: "space-between",
         }}

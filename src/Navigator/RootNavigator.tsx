@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { Image } from "react-native";
+import { Image, StatusBar } from "react-native";
 import HomeScreen from "../screens/HomeScreen";
 import LeaderBoard from "../screens/LeaderBoard";
 import PastQuestion from "../screens/PastQuestion";
@@ -39,15 +39,15 @@ function BottomTab() {
         tabBarIcon: ({ focused }) => {
           let iconName;
           if (route.name === "Home") iconName = Icons.home;
-          else if (route.name === "Services") iconName = Icons.book;
+          else if (route.name === "Services") iconName = Icons.book2;
           else if (route.name === "Transactions") iconName = Icons.explore;
-          else if (route.name === "Profile") iconName = Icons.person;
+          else if (route.name === "Profile") iconName = Icons.person2;
           return (
             <Image
               source={iconName}
               style={{
-                width: 20,
-                height: 20,
+                width: 25,
+                height: 25,
                 tintColor: focused ? "#007AFF" : "#8e8e93",
               }}
             />

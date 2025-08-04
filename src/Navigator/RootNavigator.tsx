@@ -20,7 +20,7 @@ export default function RootNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Splash"
+      initialRouteName="HomeTab"
     >
       <Stack.Screen name="HomeTab" component={BottomTab} />
       <Stack.Screen name="Login" component={LoginScreen} />
@@ -38,10 +38,10 @@ function BottomTab() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-          if (route.name === "Home") iconName = Icons.about;
-          else if (route.name === "Services") iconName = Icons.about;
-          else if (route.name === "Transactions") iconName = Icons.about2;
-          else if (route.name === "Profile") iconName = Icons.about2;
+          if (route.name === "Home") iconName = Icons.home;
+          else if (route.name === "Services") iconName = Icons.book;
+          else if (route.name === "Transactions") iconName = Icons.explore;
+          else if (route.name === "Profile") iconName = Icons.person;
           return (
             <Image
               source={iconName}

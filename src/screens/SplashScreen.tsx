@@ -13,13 +13,13 @@ const textTranslateY = useRef(new Animated.Value(50)).current;
   useEffect(() => {
     Animated.timing(imageOpacity, {
       toValue: 1,
-      duration: 2000,
+      duration: 1500,
       useNativeDriver: true,
     }).start(() => {
       Animated.parallel([
         Animated.timing(textTranslateY, {
           toValue: 0,
-          duration: 1000,
+          duration: 500,
           useNativeDriver: true,
         }),
         Animated.timing(textOpacity, {
@@ -32,7 +32,7 @@ const textTranslateY = useRef(new Animated.Value(50)).current;
 
     const timer = setTimeout(() => {
       navigation.replace("IntroScreen");
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [navigation]);

@@ -65,7 +65,7 @@ const LoginScreen = () => {
           )}
           name="firstName"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.firstName && <Text style={{color:Colors.red}}>This is field required.</Text>}
 
         <CustomInput
           value={password}

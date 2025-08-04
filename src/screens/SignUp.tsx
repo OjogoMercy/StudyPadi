@@ -8,6 +8,7 @@ import CustomInput from '../components/CustomInput';
 
 const SignUp = () => {
   const navigation = useNavigation()
+  
   const [active, setActive] = React.useState('A');
   const [firstName,setFirstName] = useState('')
   const [lastName, setLastName] = useState("");

@@ -8,6 +8,7 @@ import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useForm, Controller } from "react-hook-form";
 const LoginScreen = () => {
+  const navigation = useNavigation();
     const {
       control,
       handleSubmit,
@@ -15,16 +16,13 @@ const LoginScreen = () => {
     } = useForm({
       defaultValues: {
         firstName: "",
-        lastName: "",
+        password: "",
       },
     });
-    const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => { console.log(data); {navigation.navigate('HomeTab')}};
   const [active, setActive] = React.useState("A");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [box, setBox] = useState(false)
   
-  const navigation = useNavigation()
   return (
     <View style={general.container}>
       <Text style={{ ...FONTS.h1 }}>Login to your account</Text>
@@ -54,6 +52,7 @@ const LoginScreen = () => {
           control={control}
           rules={{
             required: true,
+            validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <CustomInput
@@ -65,15 +64,29 @@ const LoginScreen = () => {
           )}
           name="firstName"
         />
-        {errors.firstName && <Text style={{color:Colors.red}}>This is field required.</Text>}
-
-        <CustomInput
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Enter Your Password"
-          iconName={"lock-outline"}
-          secureTextEntry={true}
-        />
+        {errors.firstName && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value.trim().length > 0,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <CustomInput
+              value={value}
+              onChangeText={onChange}
+              placeholder="Enter Your Password"
+              iconName={"lock-outline"}
+              secureTextEntry={true}
+            />
+          )}
+          name="password"
+        />{" "}
+        {errors.password && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
       </View>
       <View
         style={{

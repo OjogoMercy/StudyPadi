@@ -75,6 +75,13 @@ const general = StyleSheet.create({
     paddingHorizontal: SCREEN_WIDTH * 0.03,
     backgroundColor: Colors.white,
   },
+  profile: {
+    width: SCREEN_WIDTH * 0.3,
+    height: SCREEN_WIDTH * 0.3,
+    borderRadius: SCREEN_WIDTH * 0.15,
+    alignSelf: "center",
+    marginVertical: SCREEN_HEIGHT * 0.02,
+  }
 });
 
 export default general;

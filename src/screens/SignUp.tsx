@@ -5,10 +5,28 @@ import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
 import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
 import CustomInput from '../components/CustomInput';
+import { useForm, Controller } from "react-hook-form";
 
 const SignUp = () => {
   const navigation = useNavigation()
-  
+   const {
+     control,
+     handleSubmit,
+     formState: { errors },
+   } = useForm({
+     defaultValues: {
+       firstName: "",
+       password: "",
+       lastName: "",
+       email:""
+     },
+   });
+  const onSubmit = (data) => {
+    console.log(data);
+    {
+      navigation.navigate("HomeTab");
+    }
+  };  
   const [active, setActive] = React.useState('A');
   const [firstName,setFirstName] = useState('')
   const [lastName, setLastName] = useState("");
@@ -16,7 +34,7 @@ const SignUp = () => {
   const [password,setPassword] = useState('')
   return (
     <View style={general.container}>
-      <Text style={{...FONTS.h1}}>Create an Account</Text>
+      <Text style={{ ...FONTS.h1 }}>Create an Account</Text>
       <View style={{ flexDirection: "row", width: SCREEN_WIDTH * 0.9 }}>
         <View style={{ width: SCREEN_WIDTH * 0.45 }}>
           <CustomButton
@@ -36,44 +54,91 @@ const SignUp = () => {
         </View>
       </View>
       <View style={{ marginTop: SCREEN_HEIGHT * 0.05 }}>
-        <CustomInput
-          value={firstName}
-          onChangeText={setFirstName}
-          placeholder="Enter your first name"
-          iconName={"person"}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value.trim().length > 0,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <CustomInput
+              placeholder="First name"
+              onChangeText={onChange}
+              value={value}
+              iconName={"mail-outline"}
+            />
+          )}
+          name="firstName"
         />
-        <CustomInput
-          value={lastName}
-          onChangeText={setLastName}
-          placeholder="Enter your last name"
-          iconName={"person"}
+        {errors.firstName && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value.trim().length > 0,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <CustomInput
+              placeholder="Last name"
+              onChangeText={onChange}
+              value={value}
+              iconName={"mail-outline"}
+            />
+          )}
+          name="lastName"
         />
+        {errors.firstName && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
         <CustomInput
           value={email}
           onChangeText={setEmail}
           placeholder="Enter your email"
           iconName={"mail-outline"}
         />
-        <CustomInput
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Enter Your Password"
-          iconName={"lock-outline"}
-          secureTextEntry={true}
-        />
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value.trim().length > 0,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <CustomInput
+              value={value}
+              onChangeText={onChange}
+              placeholder="Enter Your Password"
+              iconName={"lock-outline"}
+              secureTextEntry={true}
+            />
+          )}
+          name="password"
+        />{" "}
+        {errors.password && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
       </View>
       <CustomButton
         title={"Create Account"}
         onPress={() => navigation.navigate("Verification")}
       />
-      <View style={{ flexDirection: "row",alignItems:'center',justifyContent:'space-between', marginTop:SCREEN_HEIGHT*0.07}}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginTop: SCREEN_HEIGHT * 0.07,
+        }}
+      >
         <View
           style={{
             height: 1,
             width: SCREEN_WIDTH * 0.41,
             backgroundColor: Colors.black,
           }}
-        /><Text>Or</Text>
+        />
+        <Text>Or</Text>
         <View
           style={{
             height: 1,
@@ -82,7 +147,15 @@ const SignUp = () => {
           }}
         />
       </View>
-      <Text style={styles.text}>Already have an account? <Text style={{color:Colors.orange}}  onPress={() => navigation.navigate('Login')}>LogIn</Text></Text>
+      <Text style={styles.text}>
+        Already have an account?{" "}
+        <Text
+          style={{ color: Colors.orange }}
+          onPress={() => navigation.navigate("Login")}
+        >
+          LogIn
+        </Text>
+      </Text>
     </View>
   );
 }

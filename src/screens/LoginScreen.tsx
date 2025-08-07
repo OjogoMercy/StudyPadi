@@ -59,7 +59,7 @@ const LoginScreen = () => {
               placeholder="First name"
               onChangeText={onChange}
               value={value}
-              iconName={"mail-outline"}
+              iconName={"person-outline"}
             />
           )}
           name="firstName"

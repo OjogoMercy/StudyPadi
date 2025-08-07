@@ -61,7 +61,7 @@ const SignUp = () => {
               placeholder="First name"
               onChangeText={onChange}
               value={value}
-              iconName={"mail-outline"}
+              iconName={"person-outline"}
             />
           )}
           name="firstName"
@@ -80,7 +80,7 @@ const SignUp = () => {
               placeholder="Last name"
               onChangeText={onChange}
               value={value}
-              iconName={"mail-outline"}
+              iconName={"person-outline"}
             />
           )}
           name="lastName"

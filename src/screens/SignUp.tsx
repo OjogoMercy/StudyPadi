@@ -28,10 +28,6 @@ const SignUp = () => {
     }
   };  
   const [active, setActive] = React.useState('A');
-  const [firstName,setFirstName] = useState('')
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState('')
-  const [password,setPassword] = useState('')
   return (
     <View style={general.container}>
       <Text style={{ ...FONTS.h1 }}>Create an Account</Text>

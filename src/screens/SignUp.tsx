@@ -92,12 +92,25 @@ const SignUp = () => {
         {errors.firstName && (
           <Text style={{ color: Colors.red }}>This field is required.</Text>
         )}
-        <CustomInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Enter your email"
-          iconName={"mail-outline"}
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value.trim().length > 0,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <CustomInput
+              placeholder="Email"
+              onChangeText={onChange}
+              value={value}
+              iconName={"mail-outline"}
+            />
+          )}
+          name="firstName"
         />
+        {errors.firstName && (
+          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        )}
         <Controller
           control={control}
           rules={{

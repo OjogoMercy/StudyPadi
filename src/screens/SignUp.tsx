@@ -6,6 +6,7 @@ import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
 import CustomInput from '../components/CustomInput';
 import { useForm, Controller } from "react-hook-form";
+import {registerUser} from '../api/auth';
 
 const SignUp = () => {
   const navigation = useNavigation()
@@ -21,11 +22,22 @@ const SignUp = () => {
        email:""
      },
    });
-  const onSubmit = (data) => {
-    console.log(data);
-    {
-      navigation.navigate("HomeTab");
+  const onSubmit = async (data: { email: any; }) => {
+    try {
+      const response = await registerUser(data);
+      console.log(response);
+      if (response.status === 201) {
+        navigation.navigate("Verification", { email: data.email });
+      } else {
+        console.error("Registration failed:", response.data.message);
+      }
+    } catch (error) { 
+      console.error("Error during registration:", error);
+      alert("Registration failed. Please try again.");
     }
+    // {
+    //   navigation.navigate("HomeTab");
+    // }
   };  
   const [active, setActive] = React.useState('A');
   return (

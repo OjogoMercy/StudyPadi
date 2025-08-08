@@ -10,16 +10,16 @@ import { useForm, Controller } from "react-hook-form";
 import {loginUser} from '../api/Auth'
 const LoginScreen = () => {
   const navigation = useNavigation();
-    const {
-      control,
-      handleSubmit,
-      formState: { errors },
-    } = useForm({
-      defaultValues: {
-        email: "",
-        password: "",
-      },
-    });
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const onSubmit = async (data: any) => {
     try {
       const response = loginUser(data);
@@ -29,6 +29,10 @@ const LoginScreen = () => {
       } else {
         console.error("Login failed:", (await response).data.message);
       }
+    }
+    catch (error) {
+      console.error("Error during login:", error);
+      alert("Login failed. Please try again.");
     }
   };
   const [active, setActive] = React.useState("A");

@@ -6,7 +6,7 @@ import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
 import CustomInput from '../components/CustomInput';
 import { useForm, Controller } from "react-hook-form";
-import {registerUser} from '../api/auth';
+import {registerUser} from '../api/Auth';
 
 const SignUp = () => {
   const navigation = useNavigation()
@@ -16,9 +16,9 @@ const SignUp = () => {
      formState: { errors },
    } = useForm({
      defaultValues: {
-       firstName: "",
+       firstname: "",
        password: "",
-       lastName: "",
+       lastname: "",
        email:""
      },
    });
@@ -27,7 +27,7 @@ const SignUp = () => {
       const response = await registerUser(data);
       console.log(response);
       if (response.status === 201) {
-        navigation.navigate("Verification", { email: data.email });
+        navigation.navigate("Verification");
       } else {
         console.error("Registration failed:", response.data.message);
       }
@@ -35,9 +35,6 @@ const SignUp = () => {
       console.error("Error during registration:", error);
       alert("Registration failed. Please try again.");
     }
-    // {
-    //   navigation.navigate("HomeTab");
-    // }
   };  
   const [active, setActive] = React.useState('A');
   return (
@@ -76,9 +73,9 @@ const SignUp = () => {
               iconName={"person-outline"}
             />
           )}
-          name="firstName"
+          name="firstname"
         />
-        {errors.firstName && (
+        {errors.firstname && (
           <Text style={{ color: Colors.red }}>This field is required.</Text>
         )}
         <Controller
@@ -95,9 +92,9 @@ const SignUp = () => {
               iconName={"person-outline"}
             />
           )}
-          name="lastName"
+          name="lastname"
         />
-        {errors.lastName && (
+        {errors.lastname && (
           <Text style={{ color: Colors.red }}>This field is required.</Text>
         )}
         <Controller

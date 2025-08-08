@@ -7,6 +7,7 @@ import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useForm, Controller } from "react-hook-form";
+import {loginUser} from '../api/Auth'
 const LoginScreen = () => {
   const navigation = useNavigation();
     const {
@@ -19,7 +20,17 @@ const LoginScreen = () => {
         password: "",
       },
     });
-  const onSubmit = (data) => { console.log(data); {navigation.navigate('HomeTab')}};
+  const onSubmit = async (data: any) => {
+    try {
+      const response = loginUser(data);
+      console.log(response);
+      if ((await response).status === 200) {
+        navigation.navigate("HomeTab");
+      } else {
+        console.error("Login failed:", (await response).data.message);
+      }
+    }
+  };
   const [active, setActive] = React.useState("A");
   const [box, setBox] = useState(false)
   

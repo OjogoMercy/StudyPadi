@@ -26,3 +26,7 @@ export const loginUser = async (data) => {
   const response = await makeApiRequest("POST", "/user/login-user", data);
   return response;
 };
+export const verifyEmail = async (data) => {
+  const resonse = await makeApiRequest("POST", "/user/verify-email", data);
+  return response;
+}

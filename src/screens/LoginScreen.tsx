@@ -15,7 +15,7 @@ const LoginScreen = () => {
       formState: { errors },
     } = useForm({
       defaultValues: {
-        firstName: "",
+        email: "",
         password: "",
       },
     });
@@ -51,26 +51,26 @@ const LoginScreen = () => {
         <Controller
           control={control}
           rules={{
-            required: true,
+            required: true,pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
             validate: (value) => value.trim().length > 0,
           }}
-          render={({ field: { onChange, onBlur, value } }) => (
+          render={({ field: { onChange, value } }) => (
             <CustomInput
-              placeholder="First name"
+              placeholder="Email adress"
               onChangeText={onChange}
               value={value}
               iconName={"person-outline"}
             />
           )}
-          name="firstName"
+          name="email"
         />
-        {errors.firstName && (
-          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        {errors.email && (
+          <Text style={{ color: Colors.red }}>Please enter a valid email address.</Text>
         )}
         <Controller
           control={control}
           rules={{
-            required: true,
+            required: true,minLength: 8,
             validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, value } }) => (
@@ -85,7 +85,9 @@ const LoginScreen = () => {
           name="password"
         />{" "}
         {errors.password && (
-          <Text style={{ color: Colors.red }}>This field is required.</Text>
+          <Text style={{ color: Colors.red }}>
+            Password must be at least 8 characters.
+          </Text>
         )}
       </View>
       <View

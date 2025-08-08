@@ -85,13 +85,14 @@ const SignUp = () => {
           )}
           name="lastName"
         />
-        {errors.firstName && (
+        {errors.lastName && (
           <Text style={{ color: Colors.red }}>This field is required.</Text>
         )}
         <Controller
           control={control}
           rules={{
             required: true,
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
             validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -102,15 +103,18 @@ const SignUp = () => {
               iconName={"mail-outline"}
             />
           )}
-          name="firstName"
+          name="email"
         />
-        {errors.firstName && (
-          <Text style={{ color: Colors.red }}>This field is required.</Text>
+        {errors.email && (
+          <Text style={{ color: Colors.red }}>
+            Please enter a valid email address.
+          </Text>
         )}
         <Controller
           control={control}
           rules={{
             required: true,
+            minLength: 8,
             validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, value } }) => (
@@ -125,13 +129,12 @@ const SignUp = () => {
           name="password"
         />{" "}
         {errors.password && (
-          <Text style={{ color: Colors.red }}>This field is required.</Text>
+          <Text style={{ color: Colors.red }}>
+            Password must be at least 8 characters.
+          </Text>
         )}
       </View>
-      <CustomButton
-        title={"Create Account"}
-        onPress={() => navigation.navigate("Verification")}
-      />
+      <CustomButton title={"Create Account"} onPress={handleSubmit(onSubmit)} />
       <View
         style={{
           flexDirection: "row",

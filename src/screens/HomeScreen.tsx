@@ -15,8 +15,8 @@ const HomeScreen = () => {
     streak: "10",
   }
   const categories = [
-    { id: 1, icon: Icons.book2, text: "Create",navigate: "Create" ,color: Colors.primary2 },
-    { id: 2, icon: Icons.book2, text: "Forum", navigate: "Forum", color: Colors.primary2 },
+    { id: 1, icon: Icons.create, text: "Create",navigate: "Create" ,color: Colors.green2 },
+    { id: 2, icon: Icons.chat, text: "Forum", navigate: "Forum", color: Colors.primary },
     { id: 3, icon: Icons.book2, text: "Past Question" , navigate: "PastQuestion" ,color: Colors.primary2 },
   ]
   return (
@@ -47,19 +47,41 @@ const HomeScreen = () => {
         </View>
       </View>
       <Image source={Images.banner} style={styles.banner} />
-      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.01 }}>Featured Categories</Text>
-      {categories.map((id, index,item) => (
-        <TouchableOpacity
-          key={id.id}
-          style={[general.row,{backgroundColor:id.color}]}
-          onPress={() => useNavigation().navigate(id.navigate)}
-        >
-          <Ionicons name={id.icon} size={24} color={Colors.white} />
-          <Text style={{ ...FONTS.h3, color: Colors.white, marginLeft: SCREEN_WIDTH * 0.02 }}>
-            {id.text}
-          </Text>
-        </TouchableOpacity>
-      ))}
+      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.02 }}>
+        Featured Categories
+      </Text>
+      <View style={[general.row,{marginTop:SCREEN_HEIGHT*0.02}]}>
+        {categories.map((id, index, item) => (
+          <TouchableOpacity
+            key={id.id}
+            style={[styles.box, { backgroundColor: id.color }]}
+            onPress={() => useNavigation().navigate(id.navigate)}
+          >
+            <Image
+              source={id.icon}
+              style={{
+                height: SCREEN_HEIGHT * 0.05,
+                width: SCREEN_WIDTH * 0.05,
+                resizeMode: "contain",
+                tintColor: "white",
+              }}
+            />
+            <Text
+              style={{
+                ...FONTS.body4,
+                color: Colors.white,
+                marginLeft: SCREEN_WIDTH * 0.02,
+                textAlign: "center",
+              }}
+            >
+              {id.text}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.02 }}>
+Recommended test for you
+      </Text>
     </View>
   );
 };
@@ -89,5 +111,13 @@ const styles = StyleSheet.create({
     borderRadius: SCREEN_WIDTH * 0.03,
     marginTop: SCREEN_HEIGHT * 0.02,
     resizeMode: "cover",
+  },
+  box: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: SCREEN_WIDTH * 0.27,
+    height: SCREEN_HEIGHT * 0.1,
+    borderRadius: SCREEN_WIDTH * 0.02,
+    // marginRight: SCREEN_WIDTH * 0.02,
   },
 });

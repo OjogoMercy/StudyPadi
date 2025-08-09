@@ -9,25 +9,15 @@ import {
   SCREEN_WIDTH,
 } from "../constants/Theme";
 import CustomButton from "../components/CustomButton";
-import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Images } from "../constants/Images";
+import CustomHeader from "../components/CustomHeader";
 
 const Verification = () => {
   const [otp,setOtp] = useState('')
   return (
     <View style={general.container}>
-      <View style={{ flexDirection: "row" }}>
-        <MaterialIcons
-          name="arrow-circle-left"
-          size={30}
-          color={Colors.primary}
-        />
-        <Text style={{ ...FONTS.h2, marginLeft: SCREEN_WIDTH * 0.23 }}>
-          Verification
-        </Text>
-      </View>
+<CustomHeader title={'Verification'}/>
       <View
         style={{
           height: 1,

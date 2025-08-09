@@ -18,17 +18,24 @@ const Stack = createNativeStackNavigator();
 
 export default function RootNavigator() {
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName="Splash"
-    >
-      <Stack.Screen name="HomeTab" component={BottomTab} />
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Splash" component={SplashScreen} />
-      <Stack.Screen name="SignUp" component={SignUp} />
-      <Stack.Screen name="Verification" component={Verification} />
-      <Stack.Screen name="IntroScreen" component={IntroScreen} />
-    </Stack.Navigator>
+    <>
+      <StatusBar
+        backgroundColor={"transparent"}
+        barStyle={"dark-content"}
+        translucent
+      />
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="HomeTab"
+      >
+        <Stack.Screen name="HomeTab" component={BottomTab} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Verification" component={Verification} />
+        <Stack.Screen name="IntroScreen" component={IntroScreen} />
+      </Stack.Navigator>
+    </>
   );
 }
 

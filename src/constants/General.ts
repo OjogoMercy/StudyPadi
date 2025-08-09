@@ -81,7 +81,12 @@ const general = StyleSheet.create({
     borderRadius: SCREEN_WIDTH * 0.15,
     alignSelf: "center",
     marginVertical: SCREEN_HEIGHT * 0.02,
-  }
+  },
+  row:{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }
 });
 
 export default general;

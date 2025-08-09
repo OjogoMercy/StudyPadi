@@ -17,5 +17,6 @@ export const Images = {
     slide2: require("../assets/images/slide2.jpg"),
     slide3: require("../assets/images/slide3.jpg"),
     splash: require("../assets/images/splash.png"),
-    upgrade: require("../assets/images/upgrade.jpg"),
+  upgrade: require("../assets/images/upgrade.jpg"),
+    banner:require("../assets/images/banner.jpg"),
 };

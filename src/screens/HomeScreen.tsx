@@ -40,6 +40,7 @@ const HomeScreen = () => {
           <Text style={styles.dashboardText}>{rank.score}</Text>
         </View>
       </View>
+      <Image source={Images.banner} style={ styles.banner} />
     </View>
   );
 };
@@ -49,7 +50,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   dash: {
     width: "100%",
-    height: SCREEN_HEIGHT * 0.15,
+    height: SCREEN_HEIGHT * 0.13,
     backgroundColor: Colors.primary2,
     marginVertical: SCREEN_HEIGHT * 0.02,
     borderRadius: SCREEN_WIDTH * 0.03,
@@ -62,5 +63,12 @@ const styles = StyleSheet.create({
     ...FONTS.body2b,
     color: Colors.white,
     textAlign: "center",
+  },
+  banner: {
+    width: "100%",
+    height: SCREEN_HEIGHT * 0.13,
+    borderRadius: SCREEN_WIDTH * 0.03,
+    marginTop: SCREEN_HEIGHT * 0.02,
+    resizeMode: "cover",
   },
 });

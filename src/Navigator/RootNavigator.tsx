@@ -12,6 +12,8 @@ import SignUp from "../screens/SignUp";
 import { Icons } from "../constants/Icons";
 import Verification from "../screens/Verification";
 import IntroScreen from "../screens/IntroScreen";
+import Create from "../screens/Create";
+import Forum from "../screens/Forum";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,6 +36,8 @@ export default function RootNavigator() {
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Verification" component={Verification} />
         <Stack.Screen name="IntroScreen" component={IntroScreen} />
+        <Stack.Screen name="Create" component={Create} />
+        <Stack.Screen name="Forum" component={Forum} />
       </Stack.Navigator>
     </>
   );

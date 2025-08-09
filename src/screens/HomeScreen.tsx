@@ -6,6 +6,7 @@ import CustomButton from "../components/CustomButton";
 import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Icons } from "../constants/Icons";
 
 const HomeScreen = () => {
   const rank = {
@@ -13,6 +14,11 @@ const HomeScreen = () => {
     score: "1000",
     streak: "10",
   }
+  const categories = [
+    { id: 1, icon: Icons.book2, text: "Create" },
+    { id: 2, icon: Icons.book2, text: "Forum" },
+    { id: 3, icon: Icons.book2, text: "Past Question" },
+  ]
   return (
     <View style={general.container}>
       <View style={general.row}>
@@ -40,7 +46,8 @@ const HomeScreen = () => {
           <Text style={styles.dashboardText}>{rank.score}</Text>
         </View>
       </View>
-      <Image source={Images.banner} style={ styles.banner} />
+      <Image source={Images.banner} style={styles.banner} />
+      <Text style={{...FONTS.h3,marginTop:SCREEN_HEIGHT*0.01}}>Featured Categories</Text>
     </View>
   );
 };

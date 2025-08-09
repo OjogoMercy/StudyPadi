@@ -129,7 +129,7 @@ export const FONTS = {
     lineHeight: 30,
   },
   body2b: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat-Bold",
     fontSize: Sizes.body2 * 0.935,
     lineHeight: 30,
   },

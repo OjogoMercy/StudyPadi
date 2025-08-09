@@ -8,16 +8,38 @@ import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const HomeScreen = () => {
+  const rank = {
+    rank: "1",
+    score: "1000",
+    streak: "10",
+  }
   return (
     <View style={general.container}>
       <View style={general.row}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image source={Images.avatar2} style={general.profile} />
-          <Text style={{ ...FONTS.h3 ,marginLeft:SCREEN_WIDTH*0.02}}>Hi Mercy</Text>
+          <Text style={{ ...FONTS.h3, marginLeft: SCREEN_WIDTH * 0.02 }}>
+            Hi Mercy
+          </Text>
         </View>
         <Ionicons name="notifications" size={24} color={Colors.primary} />
       </View>
-      <View style={styles.dash}></View>
+      <View style={styles.dash}>
+        <View>
+          <Text style={styles.dashboardText}>Rank</Text>
+          <Text style={styles.dashboardText}>{rank.rank}</Text>
+        </View>
+        <View style={{ height: "60%", backgroundColor: "white", width: 2 }} />
+        <View>
+          <Text style={styles.dashboardText}>Streak</Text>
+          <Text style={styles.dashboardText}>{rank.streak}</Text>
+        </View>
+        <View style={{ height: "60%", backgroundColor: "white", width: 2 }} />
+        <View>
+          <Text style={styles.dashboardText}>Score</Text>
+          <Text style={styles.dashboardText}>{rank.score}</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -27,8 +49,18 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   dash: {
     width: "100%",
-    height: SCREEN_HEIGHT * 0.1,
-    backgroundColor: Colors.lightGray,
+    height: SCREEN_HEIGHT * 0.15,
+    backgroundColor: Colors.primary2,
     marginVertical: SCREEN_HEIGHT * 0.02,
+    borderRadius: SCREEN_WIDTH * 0.03,
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: SCREEN_WIDTH * 0.05,
+  },
+  dashboardText: {
+    ...FONTS.body2b,
+    color: Colors.white,
+    textAlign: "center",
   },
 });

@@ -9,4 +9,6 @@ export const Icons = {
     person2: require('../assets/icons/person2.png'),
     explore: require('../assets/icons/explore.png'),
     explore2: require('../assets/icons/explore2.png'),
+    chat: require('../assets/icons/chat.png'),
+    create: require('../assets/icons/create.png'),
 }

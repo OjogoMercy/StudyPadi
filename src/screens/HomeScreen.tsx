@@ -15,9 +15,9 @@ const HomeScreen = () => {
     streak: "10",
   }
   const categories = [
-    { id: 1, icon: Icons.book2, text: "Create" },
-    { id: 2, icon: Icons.book2, text: "Forum" },
-    { id: 3, icon: Icons.book2, text: "Past Question" },
+    { id: 1, icon: Icons.book2, text: "Create",navigate: "Create" ,color: Colors.primary2 },
+    { id: 2, icon: Icons.book2, text: "Forum", navigate: "Forum", color: Colors.primary2 },
+    { id: 3, icon: Icons.book2, text: "Past Question" , navigate: "PastQuestion" ,color: Colors.primary2 },
   ]
   return (
     <View style={general.container}>
@@ -47,7 +47,19 @@ const HomeScreen = () => {
         </View>
       </View>
       <Image source={Images.banner} style={styles.banner} />
-      <Text style={{...FONTS.h3,marginTop:SCREEN_HEIGHT*0.01}}>Featured Categories</Text>
+      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.01 }}>Featured Categories</Text>
+      {categories.map((id, index,item) => (
+        <TouchableOpacity
+          key={id.id}
+          style={[general.row,{backgroundColor:id.color}]}
+          onPress={() => useNavigation().navigate(id.navigate)}
+        >
+          <Ionicons name={id.icon} size={24} color={Colors.white} />
+          <Text style={{ ...FONTS.h3, color: Colors.white, marginLeft: SCREEN_WIDTH * 0.02 }}>
+            {id.text}
+          </Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 };

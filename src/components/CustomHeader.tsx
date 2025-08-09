@@ -7,7 +7,7 @@ const CustomHeader = ({ title }) => {
   const navigation = useNavigation();
   return (
     <View style={{ flexDirection: "row" }}>
-      <TouchableOpacity onPress={()=> navigation.goBack}>
+      <TouchableOpacity onPress={()=> navigation.goBack()}>
         <MaterialIcons
           name="arrow-circle-left"
           size={SCREEN_HEIGHT * 0.03}

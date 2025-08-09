@@ -9,6 +9,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Icons } from "../constants/Icons";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   const rank = {
     rank: "1",
     score: "1000",
@@ -55,7 +56,7 @@ const HomeScreen = () => {
           <TouchableOpacity
             key={id.id}
             style={[styles.box, { backgroundColor: id.color }]}
-            onPress={() => useNavigation().navigate(id.navigate)}
+            onPress={() => navigation.navigate(id.navigate)}
           >
             <Image
               source={id.icon}

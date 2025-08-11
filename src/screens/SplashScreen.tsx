@@ -13,7 +13,7 @@ const textTranslateY = useRef(new Animated.Value(50)).current;
   useEffect(() => {
     Animated.timing(imageOpacity, {
       toValue: 1,
-      duration: 1500,
+      duration: 1200,
       useNativeDriver: true,
     }).start(() => {
       Animated.parallel([
@@ -24,7 +24,7 @@ const textTranslateY = useRef(new Animated.Value(50)).current;
         }),
         Animated.timing(textOpacity, {
           toValue: 1,
-          duration: 500,
+          duration: 300,
           useNativeDriver: true,
         }),
       ]).start();

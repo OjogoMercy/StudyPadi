@@ -15,24 +15,31 @@ import CustomHeader from "../components/CustomHeader";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigation } from "expo-router";
 import { verifyEmail } from "../api/Auth";
+import { useRoute } from "@react-navigation/native";
 
 const Verification = () => {
+  const route = useRoute();
   const navigation = useNavigation();
   const [otp, setOtp] = useState('')
+  const {email} = route.params
   
-  const handleSubmit = async () => { 
+  const handleSubmit = async (data: any) => { 
     try {
-      if (otp.length !== 4) {
-        alert("Please enter a valid OTP");
+      const response = await verifyEmail(data)
+      if (response.status === 200) {
+navigation.navigate('HomeTab')
       } else {
         const response = await verifyEmail(otp);
         console.log(response)
       }
+    } catch (error) {
+      console.error("Error during verification:", error);
+      alert("Verification failed. Please try again.");
     }
   }
   return (
     <View style={general.container}>
-<CustomHeader title={'Verification'}/>
+      <CustomHeader title={"Verification"} />
       <View
         style={{
           height: 1,
@@ -51,7 +58,7 @@ const Verification = () => {
         Verification Code
       </Text>
       <Text style={{ alignSelf: "center", ...FONTS.body5 }}>
-        Enter the six digit code sent to me@example.com
+        Enter the six digit code sent to {email}
       </Text>
       <Image
         source={Images.shield}
@@ -67,7 +74,7 @@ const Verification = () => {
         iconName="mail-outline"
         placeholder="Enter OTP"
       />
-      <CustomButton title="Verify" onPress={handlesubmit}/>
+      <CustomButton title="Verify" onPress={handleSubmit} />
       <Text
         style={{
           alignSelf: "center",
@@ -76,7 +83,10 @@ const Verification = () => {
       >
         Or
       </Text>
-      <CustomButton title="Verify Later" onPress={() => navigation.navigate('HomeTab')}/>
+      <CustomButton
+        title="Verify Later"
+        onPress={() => navigation.navigate("HomeTab")}
+      />
     </View>
   );
 };

@@ -12,6 +12,7 @@ import CustomButton from "../components/CustomButton";
 import CustomInput from "../components/CustomInput";
 import { Images } from "../constants/Images";
 import CustomHeader from "../components/CustomHeader";
+import { useForm,Controller } from "react-hook-form";
 
 const Verification = () => {
   const [otp,setOtp] = useState('')

@@ -16,7 +16,6 @@ const makeApiRequest = async (method, endpoint, data) => {
     return { error: error.message || error };
   }
 };
-
 export const registerUser = async (data) => {
   const response = await makeApiRequest("POST", "/user/create-user", data);
   return response;
@@ -27,6 +26,6 @@ export const loginUser = async (data) => {
   return response;
 };
 export const verifyEmail = async (data) => {
-  const resonse = await makeApiRequest("POST", "/user/verify-email", data);
+  const response = await makeApiRequest("POST", "/user/verify-email", data);
   return response;
 }

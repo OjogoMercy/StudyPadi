@@ -28,7 +28,7 @@ export default function RootNavigator() {
       />
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="HomeTab"
+        initialRouteName="Verification"
       >
         <Stack.Screen name="HomeTab" component={BottomTab} />
         <Stack.Screen name="Login" component={LoginScreen} />

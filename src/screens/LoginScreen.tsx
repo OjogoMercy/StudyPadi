@@ -26,6 +26,8 @@ const LoginScreen = () => {
       console.log(response);
       if ((await response).status === 200) {
         navigation.navigate("HomeTab");
+      } else if (response.data.checkStatus?.status === "Verify Later") {
+        navigation.navigate("Verification", { email: data.email });
       } else {
         console.error("Login failed:", (await response).data.message);
       }

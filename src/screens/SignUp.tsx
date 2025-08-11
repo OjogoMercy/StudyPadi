@@ -27,7 +27,7 @@ const SignUp = () => {
       const response = await registerUser(data);
       console.log(response);
       if (response.status === 201) {
-        navigation.navigate("Verification");
+        navigation.navigate("Verification",{email});
       } else {
         console.error("Registration failed:", response.data.message);
       }

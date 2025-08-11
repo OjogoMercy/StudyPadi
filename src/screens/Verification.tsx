@@ -12,10 +12,24 @@ import CustomButton from "../components/CustomButton";
 import CustomInput from "../components/CustomInput";
 import { Images } from "../constants/Images";
 import CustomHeader from "../components/CustomHeader";
-import { useForm,Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import { useNavigation } from "expo-router";
+import { verifyEmail } from "../api/Auth";
 
 const Verification = () => {
-  const [otp,setOtp] = useState('')
+  const navigation = useNavigation();
+  const [otp, setOtp] = useState('')
+  
+  const handleSubmit = async () => { 
+    try {
+      if (otp.length !== 4) {
+        alert("Please enter a valid OTP");
+      } else {
+        const response = await verifyEmail(otp);
+        console.log(response)
+      }
+    }
+  }
   return (
     <View style={general.container}>
 <CustomHeader title={'Verification'}/>
@@ -53,7 +67,7 @@ const Verification = () => {
         iconName="mail-outline"
         placeholder="Enter OTP"
       />
-      <CustomButton title="Verify" />
+      <CustomButton title="Verify" onPress={handlesubmit}/>
       <Text
         style={{
           alignSelf: "center",
@@ -62,7 +76,7 @@ const Verification = () => {
       >
         Or
       </Text>
-      <CustomButton title="Verify Later" />
+      <CustomButton title="Verify Later" onPress={() => navigation.navigate('HomeTab')}/>
     </View>
   );
 };

@@ -19,12 +19,10 @@ const Profile = () => {
           data={menuOptions}
           renderItem={({ item }) => {
             return (
-              <View
-                style={{ flexDirection: "row", padding: Sizes.smallPadding }}
-              >
-                <Ionicons name={item.icon} size={Sizes.body4} />
+              <View style={{ flexDirection: "row", padding: Sizes.smallPadding }}>
+                <Ionicons name={item.icon as keyof typeof Ionicons.glyphMap} size={Sizes.body4} />
                 <Text style={{ ...FONTS.body4 }}>{item.title}</Text>
-                <MaterialIcons  name="keyboard-arrow-right" size={24}  color="black"/>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color={Colors.black} style={{marginLeft:'auto'}}/>
               </View>
             );
           }}

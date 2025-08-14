@@ -8,21 +8,25 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Icons } from "../constants/Icons";
 import CustomHeader from "../components/CustomHeader";
 import { menuOptions } from "../constants/DataBase";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const Profile = () => {
   return (
     <ScrollView style={general.container}>
       <CustomHeader title={'Profile'} />
-      <View>
+      <View style={styles.box}>
         <FlatList
           data={menuOptions}
           renderItem={({ item }) => {
             return (
-              <View style={{flexDirection:'row',padding:Sizes.smallPadding}}>
+              <View
+                style={{ flexDirection: "row", padding: Sizes.smallPadding }}
+              >
                 <Ionicons name={item.icon} size={Sizes.body4} />
-                <Text style={{...FONTS.body4}}>{ item.title}</Text>
+                <Text style={{ ...FONTS.body4 }}>{item.title}</Text>
+                <MaterialIcons  name="keyboard-arrow-right" size={24}  color="black"/>
               </View>
-            )
+            );
           }}
         />
       </View>
@@ -32,4 +36,8 @@ const Profile = () => {
 
 export default Profile;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  box: {
+  backgroundColor:Colors.lightGray,
+  }
+});

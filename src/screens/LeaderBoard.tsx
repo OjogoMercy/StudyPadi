@@ -18,7 +18,7 @@ const LeaderBoard = () => {
             size={SCREEN_HEIGHT * 0.03}
             color={Colors.white}/>
         </TouchableOpacity>
-        <Text style={{ ...FONTS.h2, marginLeft: SCREEN_WIDTH * 0.23 }}>LeaderBoard</Text>
+        <Text style={{ ...FONTS.h2, marginLeft: SCREEN_WIDTH * 0.23,color:Colors.white }}>LeaderBoard</Text>
       </View>
     </View>
   );

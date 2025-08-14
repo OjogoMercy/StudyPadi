@@ -7,6 +7,7 @@ import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Icons } from "../constants/Icons";
 import CustomHeader from "../components/CustomHeader";
+import { menuOptions } from "../constants/DataBase";
 
 const Profile = () => {
   return (

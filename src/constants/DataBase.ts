@@ -51,6 +51,16 @@ export const courses = [
       navigate: "PastQuestion",
       color: Colors.primary2,
     },
+];
+  export const menuOptions = [
+    { title: "Edit profile", icon: "person-circle-outline" },
+    { title: "Upgrade to premium", icon: "star-outline" },
+    { title: "Test History", icon: "time-outline" },
+    { title: "Open web app", icon: "globe-outline" },
+    { title: "Contact us", icon: "call-outline" },
+    { title: "Terms & Condition", icon: "document-text-outline" },
+    { title: "Report a problem", icon: "alert-circle-outline" },
+    { title: "Log out", icon: "log-out-outline" },
   ];
 
  

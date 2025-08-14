@@ -5,7 +5,6 @@ import { Images } from '../constants/Images'
 import { useNavigation } from 'expo-router';
 
 const SplashScreen = ({navigation}) => {
-  // const navigation = useNavigation()
 const imageOpacity = useRef(new Animated.Value(0)).current;
 const textOpacity = useRef(new Animated.Value(0)).current;
 const textTranslateY = useRef(new Animated.Value(50)).current;

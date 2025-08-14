@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View ,Image} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View ,Image,FlatList} from "react-native";
 import React, { useState } from "react";
 import general from "../constants/General";
 import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
@@ -48,10 +48,8 @@ const HomeScreen = () => {
         </View>
       </View>
       <Image source={Images.banner} style={styles.banner} />
-      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.02 }}>
-        Featured Categories
-      </Text>
-      <View style={[general.row,{marginTop:SCREEN_HEIGHT*0.02}]}>
+      <Text style={general.boldText}>Featured Categories</Text>
+      <View style={[general.row, { marginTop: SCREEN_HEIGHT * 0.02 }]}>
         {categories.map((id, index, item) => (
           <TouchableOpacity
             key={id.id}
@@ -80,9 +78,17 @@ const HomeScreen = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <Text style={{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.02 }}>
-Recommended test for you
-      </Text>
+      <Text style={general.boldText}>Recommended test for you</Text>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.}>
+                <Text></Text>
+            </View>
+          )
+        }}
+      />
     </View>
   );
 };

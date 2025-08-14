@@ -86,7 +86,8 @@ const general = StyleSheet.create({
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-        }
+  },
+boldText:{ ...FONTS.h3, marginTop: SCREEN_HEIGHT * 0.02 },
 });
 
 export default general;

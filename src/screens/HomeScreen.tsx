@@ -9,7 +9,6 @@ import { categories,courses,rank } from "../constants/DataBase";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-
   return (
     <View style={general.container}>
       <View style={general.row}>
@@ -76,7 +75,7 @@ const HomeScreen = () => {
           return (
             <View style={styles.card}>
               <Image source={{ uri: item.image }} style={styles.image} />
-              <Text style={{...FONTS.body1}}>{item.title}</Text>
+              <Text style={{...FONTS.body3b}}>{item.title}</Text>
               <Text style={{...FONTS.body4}}>{item.description}</Text>
             </View>
           );
@@ -124,9 +123,11 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderRadius: Sizes.smallPadding,
     elevation: 2,
+    width: SCREEN_WIDTH * 0.3,
+    height:SCREEN_HEIGHT*0.3,
   },
   image: {
-    width: SCREEN_WIDTH * 0.9,
+    width: SCREEN_WIDTH * 0.3,
     height: SCREEN_HEIGHT* 0.15,
     borderRadius: Sizes.radius,
   },

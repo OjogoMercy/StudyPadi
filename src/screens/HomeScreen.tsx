@@ -10,16 +10,7 @@ import { Icons } from "../constants/Icons";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  const rank = {
-    rank: "1",
-    score: "1000",
-    streak: "10",
-  }
-  const categories = [
-    { id: 1, icon: Icons.create, text: "Create",navigate: "Create" ,color: Colors.green2 },
-    { id: 2, icon: Icons.chat, text: "Forum", navigate: "Forum", color: Colors.primary },
-    { id: 3, icon: Icons.book2, text: "Past Question" , navigate: "PastQuestion" ,color: Colors.primary2 },
-  ]
+
   return (
     <View style={general.container}>
       <View style={general.row}>
@@ -80,10 +71,10 @@ const HomeScreen = () => {
       </View>
       <Text style={general.boldText}>Recommended test for you</Text>
       <FlatList
-        data={data}
+        data={courses}
         renderItem={({ item }) => {
           return (
-            <View style={styles.}>
+            <View style={styles.card}>
                 <Text></Text>
             </View>
           )
@@ -125,6 +116,5 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH * 0.27,
     height: SCREEN_HEIGHT * 0.1,
     borderRadius: SCREEN_WIDTH * 0.02,
-    // marginRight: SCREEN_WIDTH * 0.02,
   },
 });

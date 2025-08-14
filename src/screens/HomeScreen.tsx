@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View ,Image,FlatList} from "react-native";
 import React, { useState } from "react";
 import general from "../constants/General";
-import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
-import CustomButton from "../components/CustomButton";
+import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH,Sizes } from "../constants/Theme";
 import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Icons } from "../constants/Icons";
+import { categories,courses,rank } from "../constants/DataBase";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -72,12 +72,15 @@ const HomeScreen = () => {
       <Text style={general.boldText}>Recommended test for you</Text>
       <FlatList
         data={courses}
+        numColumns={2}
         renderItem={({ item }) => {
           return (
             <View style={styles.card}>
-                <Text></Text>
+              <Image source={{ uri: item.image }} style={styles.image} />
+              <Text style={{...FONTS.body1}}>{item.title}</Text>
+              <Text style={{...FONTS.body4}}>{item.description}</Text>
             </View>
-          )
+          );
         }}
       />
     </View>
@@ -94,8 +97,8 @@ const styles = StyleSheet.create({
     marginVertical: SCREEN_HEIGHT * 0.02,
     borderRadius: SCREEN_WIDTH * 0.03,
     flexDirection: "row",
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: SCREEN_WIDTH * 0.05,
   },
   dashboardText: {
@@ -116,5 +119,17 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH * 0.27,
     height: SCREEN_HEIGHT * 0.1,
     borderRadius: SCREEN_WIDTH * 0.02,
+  },
+  card: {
+    margin:Sizes.base,
+    padding:Sizes.padding,
+    backgroundColor:Colors.white,
+    borderRadius: Sizes.smallPadding,
+    elevation: 2,
+  },
+  image: {
+    width: SCREEN_WIDTH * 0.9,
+    height: SCREEN_HEIGHT* 0.15,
+    borderRadius: Sizes.radius,
   },
 });

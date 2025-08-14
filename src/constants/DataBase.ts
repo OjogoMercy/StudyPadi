@@ -1,5 +1,6 @@
 import { Icons } from "./Icons";
 import { Colors } from "./Theme";
+import { Images } from "./Images";
 
 export const courses = [
   {
@@ -7,21 +8,21 @@ export const courses = [
     title: "Introduction to Python",
     description:
       "Learn the basics of Python programming, including syntax, data types, and functions.",
-    image: "https://example.com/python-course.jpg",
+    image: Images.slide1,
   },
   {
     id: "2",
     title: "Web Development with React",
     description:
       "Build dynamic web applications using React, JSX, and state management.",
-    image: "https://example.com/react-course.jpg",
+    image: Images.slide2,
   },
   {
     id: "3",
     title: "Data Science Fundamentals",
     description:
       "Explore data analysis, visualization, and machine learning techniques.",
-    image: "https://example.com/data-science-course.jpg",
+    image: Images.slide3,
   },
 ];
  export  const rank = {

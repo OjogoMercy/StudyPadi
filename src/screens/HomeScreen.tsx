@@ -73,11 +73,11 @@ const HomeScreen = () => {
         numColumns={2}
         renderItem={({ item }) => {
           return (
-            <View style={styles.card}>
+            <TouchableOpacity style={styles.card}>
               <Image source={{ uri: item.image }} style={styles.image} />
               <Text style={{...FONTS.body3b}}>{item.title}</Text>
               <Text style={{...FONTS.body4}}>{item.description}</Text>
-            </View>
+            </TouchableOpacity>
           );
         }}
       />

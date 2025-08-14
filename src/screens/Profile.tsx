@@ -38,6 +38,9 @@ export default Profile;
 
 const styles = StyleSheet.create({
   box: {
-  backgroundColor:Colors.lightGray,
+    backgroundColor: Colors.lightGray,
+    borderRadius: Sizes.radius,
+    width: SCREEN_WIDTH * 0.9,
+    height:SCREEN_HEIGHT* 0.6,
   }
 });

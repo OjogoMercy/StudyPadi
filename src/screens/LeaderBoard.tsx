@@ -6,11 +6,20 @@ import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { categories, courses, rank } from "../constants/DataBase";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 const LeaderBoard = () => {
-  const navigate = useNavigation()
+  const navigation = useNavigation()
   return (
     <View style={general.container}>
-      <Text>LeaderBoard</Text>
+      <View style={{ flexDirection: "row" ,backgroundColor:Colors.primary}}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <MaterialIcons
+            name="arrow-circle-left"
+            size={SCREEN_HEIGHT * 0.03}
+            color={Colors.white}/>
+        </TouchableOpacity>
+        <Text style={{ ...FONTS.h2, marginLeft: SCREEN_WIDTH * 0.23 }}>LeaderBoard</Text>
+      </View>
     </View>
   );
 };

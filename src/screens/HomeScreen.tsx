@@ -5,7 +5,6 @@ import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH,Sizes } from "../constants/T
 import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Icons } from "../constants/Icons";
 import { categories,courses,rank } from "../constants/DataBase";
 
 const HomeScreen = () => {
@@ -88,7 +87,6 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
 const styles = StyleSheet.create({
   dash: {
     width: "100%",

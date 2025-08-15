@@ -149,7 +149,7 @@ export const FONTS = {
     lineHeight: 18,
   },
   body3b: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat-Medium",
     fontSize: Sizes.body3b,
     lineHeight: 18,
   },

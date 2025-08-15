@@ -5,24 +5,31 @@ import { Images } from "./Images";
 export const courses = [
   {
     id: "1",
-    title: "Introduction to Python",
+    title: "PHY103",
     description:
       "Learn the basics of Python programming, including syntax, data types, and functions.",
     image: Images.slide1,
   },
   {
     id: "2",
-    title: "Web Development with React",
+    title: "CPS201",
     description:
       "Build dynamic web applications using React, JSX, and state management.",
     image: Images.slide2,
   },
   {
     id: "3",
-    title: "Data Science Fundamentals",
+    title: "CSE201",
     description:
       "Explore data analysis, visualization, and machine learning techniques.",
     image: Images.slide3,
+    },
+  {
+    id: "4",
+    title: "PHY103",
+    description:
+      "Learn the basics of Python programming, including syntax, data types, and functions.",
+    image: Images.slide1,
   },
 ];
  export  const rank = {

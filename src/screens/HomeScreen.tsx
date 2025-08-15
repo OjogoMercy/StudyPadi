@@ -74,9 +74,9 @@ const HomeScreen = () => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity style={styles.card}>
-              <Image source={{ uri: item.image }} style={styles.image} />
-              <Text style={{...FONTS.body3b}}>{item.title}</Text>
-              <Text style={{...FONTS.body4}}>{item.description}</Text>
+              <Image source={item.image} style={styles.image} />
+              <Text style={{...FONTS.body3b,color:Colors.orange,margin:Sizes.radius}}>{item.title}</Text>
+              <Text style={{...FONTS.body4}}  numberOfLines={2}>{item.description}</Text>
             </TouchableOpacity>
           );
         }}
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderRadius: Sizes.smallPadding,
     elevation: 2,
-    width: SCREEN_WIDTH * 0.3,
+    width: SCREEN_WIDTH * 0.4,
     height:SCREEN_HEIGHT*0.3,
   },
   image: {

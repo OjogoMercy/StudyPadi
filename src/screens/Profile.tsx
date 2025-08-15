@@ -9,7 +9,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const Profile = () => {
   return (
-    <ScrollView style={general.container}>
+    <ScrollView style={[general.container,{backgroundColor:'#ccc'}]}>
       <CustomHeader title={'Profile'} />
       <View style={styles.box}>
         <FlatList
@@ -17,8 +17,8 @@ const Profile = () => {
           renderItem={({ item }) => {
             return (
               <View style={{ flexDirection: "row", padding: Sizes.smallPadding }}>
-                <Ionicons name={item.icon as keyof typeof Ionicons.glyphMap} size={Sizes.body4} />
-                <Text style={{ ...FONTS.body4 }}>{item.title}</Text>
+                <Ionicons name={item.icon as keyof typeof Ionicons.glyphMap} size={Sizes.body3} />
+                <Text style={{ ...FONTS.body2 }}>{item.title}</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={24} color={Colors.black} style={{marginLeft:'auto'}}/>
               </View>
             );
@@ -31,11 +31,11 @@ const Profile = () => {
 export default Profile;
 const styles = StyleSheet.create({
   box: {
-    backgroundColor: Colors.lightGray,
+    backgroundColor: Colors.white,
     borderRadius: Sizes.radius,
     width: SCREEN_WIDTH * 0.9,
     height: SCREEN_HEIGHT * 0.6,
-    borderWidth: Sizes.body6,
+    borderWidth: SCREEN_WIDTH*0.003,
     borderColor:Colors.black
   }
 });

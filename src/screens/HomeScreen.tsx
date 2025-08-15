@@ -36,50 +36,66 @@ const HomeScreen = () => {
           <Text style={styles.dashboardText}>{rank.score}</Text>
         </View>
       </View>
-      <Image source={Images.banner} style={styles.banner} />
-      <Text style={general.boldText}>Featured Categories</Text>
-      <View style={[general.row, { marginTop: SCREEN_HEIGHT * 0.02 }]}>
-        {categories.map((id, index, item) => (
-          <TouchableOpacity
-            key={id.id}
-            style={[styles.box, { backgroundColor: id.color }]}
-            onPress={() => navigation.navigate(id.navigate)}
-          >
-            <Image
-              source={id.icon}
-              style={{
-                height: SCREEN_HEIGHT * 0.05,
-                width: SCREEN_WIDTH * 0.05,
-                resizeMode: "contain",
-                tintColor: "white",
-              }}
-            />
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: Colors.white,
-                marginLeft: SCREEN_WIDTH * 0.02,
-                textAlign: "center",
-              }}
-            >
-              {id.text}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-      <Text style={general.boldText}>Recommended test for you</Text>
+
       <FlatList
         data={courses}
         numColumns={2}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card} activeOpacity={0.8}>
               <Image source={item.image} style={styles.image} />
-              <Text style={{...FONTS.body3b,color:Colors.orange,margin:Sizes.radius}}>{item.title}</Text>
-              <Text style={{...FONTS.body4}}  numberOfLines={2}>{item.description}</Text>
+              <Text
+                style={{
+                  ...FONTS.body3b,
+                  color: Colors.orange,
+                  margin: Sizes.radius,
+                }}
+              >
+                {item.title}
+              </Text>
+              <Text style={{ ...FONTS.body4 }} numberOfLines={2}>
+                {item.description}
+              </Text>
             </TouchableOpacity>
           );
         }}
+        ListHeaderComponent={
+          <View>
+            <Image source={Images.banner} style={styles.banner} />
+            <Text style={general.boldText}>Featured Categories</Text>
+            <View style={[general.row, { marginTop: SCREEN_HEIGHT * 0.02 }]}>
+              {categories.map((id, index, item) => (
+                <TouchableOpacity
+                  key={id.id}
+                  style={[styles.box, { backgroundColor: id.color }]}
+                  onPress={() => navigation.navigate(id.navigate)}
+                >
+                  <Image
+                    source={id.icon}
+                    style={{
+                      height: SCREEN_HEIGHT * 0.05,
+                      width: SCREEN_WIDTH * 0.05,
+                      resizeMode: "contain",
+                      tintColor: "white",
+                    }}
+                  />
+                  <Text
+                    style={{
+                      ...FONTS.body4,
+                      color: Colors.white,
+                      marginLeft: SCREEN_WIDTH * 0.02,
+                      textAlign: "center",
+                    }}
+                  >
+                    {id.text}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <Text style={general.boldText}>Recommended test for you</Text>
+          </View>
+        }
       />
     </View>
   );

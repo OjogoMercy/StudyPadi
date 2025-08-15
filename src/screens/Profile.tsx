@@ -20,10 +20,11 @@ const Profile = () => {
       <View style={styles.box}>
         <FlatList
           data={menuOptions}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={{ alignSelf: "baseline" }}
           renderItem={({ item }) => {
             return (
-              <View style={{ width: SCREEN_WIDTH * 0.9}}>
+              <View style={{ width: SCREEN_WIDTH * 0.9 }}>
                 <View
                   style={{
                     flexDirection: "row",
@@ -36,12 +37,12 @@ const Profile = () => {
                     name={item.icon as keyof typeof Ionicons.glyphMap}
                     size={Sizes.h2}
                   />
-                  <Text style={{ ...FONTS.body3b, textAlign: "left" }}>
+                  <Text style={{ ...FONTS.body3b, textAlign: "left" ,marginLeft:SCREEN_WIDTH*0.01}}>
                     {item.title}
                   </Text>
                   <MaterialIcons
                     name="keyboard-arrow-right"
-                    size={24}
+                    size={SCREEN_WIDTH * 0.07}
                     color={Colors.black}
                     style={{ marginLeft: "auto" }}
                   />
@@ -49,7 +50,7 @@ const Profile = () => {
                 <View
                   style={{
                     height: SCREEN_WIDTH * 0.002,
-                    width: "90%",
+                    width: "100%",
                     backgroundColor: Colors.black,
                   }}
                 />
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     borderRadius: Sizes.radius,
     width: SCREEN_WIDTH * 0.9,
-    height: SCREEN_HEIGHT * 0.5,
+    height: SCREEN_HEIGHT * 0.65,
     borderWidth: SCREEN_WIDTH * 0.002,
     borderColor: Colors.black,
   },

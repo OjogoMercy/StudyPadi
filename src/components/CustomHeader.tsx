@@ -6,16 +6,22 @@ import { useNavigation } from 'expo-router';
 const CustomHeader = ({ title }) => {
   const navigation = useNavigation();
   return (
-    <View style={{ flexDirection: "row" }}>
-      <TouchableOpacity onPress={()=> navigation.goBack()}>
+    <View style={{ flexDirection: "row" ,}}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <MaterialIcons
           name="arrow-circle-left"
           size={SCREEN_HEIGHT * 0.03}
           color={Colors.primary}
         />
       </TouchableOpacity>
-      <Text style={{ ...FONTS.h2, marginLeft: SCREEN_WIDTH * 0.23 }}>
-      {title}
+      <Text
+        style={{
+          ...FONTS.h2,
+          marginLeft: SCREEN_WIDTH * 0.26,
+          textAlign: "center",
+        }}
+      >
+        {title}
       </Text>
     </View>
   );

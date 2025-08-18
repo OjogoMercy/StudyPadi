@@ -27,16 +27,16 @@ const LoginScreen = () => {
     try {
       const response = await loginUser(data);
       console.log(response);
-      if ((await response).status === 200)
+      if (response.status === 200){
         dispatch(loginSuccess({
           user: response.data.user,
           token: response.data.token
         }))
-      {navigation.navigate("HomeTab");
+      navigation.navigate("HomeTab");
       } else if (response.data.checkStatus?.status === "Verify Later") {
         navigation.navigate("Verification", { email: data.email });
       } else {
-        console.error("Login failed:", (await response).data.message);
+        console.error("Login failed:", response.data.message);
       }
     }
     catch (error) {

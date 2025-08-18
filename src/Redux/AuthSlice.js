@@ -23,8 +23,11 @@ const authSlice = createSlice({
         },
         loginError: (state, action){
             state.error = action.payload
+        },
+        clearError: (state){
+            state.error = null
         }
     }
 })
 export default authSlice.reducer;
-export const { loginSuccess, logout } = authSlice.actions;
+export const { loginSuccess, logout ,loginError,clearError} = authSlice.actions;

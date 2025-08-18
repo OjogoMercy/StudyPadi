@@ -7,8 +7,10 @@ import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useForm, Controller } from "react-hook-form";
-import {loginUser} from '../api/Auth'
+import { loginUser } from '../api/Auth'
+import { UseDispatch } from "react-redux";
 const LoginScreen = () => {
+  const dispatch = useDispatch()
   const navigation = useNavigation();
   const {
     control,

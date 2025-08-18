@@ -7,6 +7,8 @@ import {
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import React from "react";
+import { store } from '../src/Redux/Store'
+import { Provider } from 'react-redux';
 
 React.useEffect(() => { 
   const loadFonts = async () => {
@@ -23,10 +25,12 @@ React.useEffect(() => {
 
 export default function RootLayout() {
   return (
-    <NavigationIndependentTree>
-      <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer>
-    </NavigationIndependentTree>
+    <Provider store={store} >
+      <NavigationIndependentTree>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </NavigationIndependentTree>
+    </Provider>
   );
 }

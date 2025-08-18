@@ -6,9 +6,12 @@ import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
 import CustomInput from '../components/CustomInput';
 import { useForm, Controller } from "react-hook-form";
-import {registerUser} from '../api/Auth';
+import { registerUser } from '../api/Auth';
+import { loginSuccess } from '../Redux/AuthSlice';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
+  const dispatch = useDispatch()
   const navigation = useNavigation()
    const {
      control,
@@ -27,6 +30,18 @@ const SignUp = () => {
       const response = await registerUser(data);
       console.log(response);
       if (response.status === 201) {
+        dispatch(
+          loginSuccess({
+            user: {
+              id: response.data.user.id,
+              email: response.data.user.email,
+              firstname: response.data.user.firstname,
+              lastname: response.data.user.lastname,
+              password: response.data.user.password,
+            },
+            token: response.data.token,
+          })
+        );
         navigation.navigate("Verification",{email});
       } else {
         console.error("Registration failed:", response.data.message);

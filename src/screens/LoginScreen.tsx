@@ -7,8 +7,8 @@ import { useNavigation } from "expo-router";
 import CustomInput from "../components/CustomInput";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useForm, Controller } from "react-hook-form";
-import { loginUser } from '../api/Auth'
-import { UseDispatch } from "react-redux";
+import { loginUser } from "../api/Auth";
+import  {  useDispatch}  from "react-redux";
 import { loginSuccess } from "../Redux/AuthSlice";
 const LoginScreen = () => {
   const dispatch = useDispatch()
@@ -27,26 +27,27 @@ const LoginScreen = () => {
     try {
       const response = await loginUser(data);
       console.log(response);
-      if (response.status === 200){
-        dispatch(loginSuccess({
-          user: response.data.user,
-          token: response.data.token
-        }))
-      navigation.navigate("HomeTab");
+      if (response.status === 200) {
+        dispatch(
+          loginSuccess({
+            user: response.data.user,
+            token: response.data.token,
+          })
+        );
+        navigation.navigate("HomeTab");
       } else if (response.data.checkStatus?.status === "Verify Later") {
         navigation.navigate("Verification", { email: data.email });
       } else {
         console.error("Login failed:", response.data.message);
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.error("Error during login:", error);
       alert("Login failed. Please try again.");
     }
   };
   const [active, setActive] = React.useState("A");
-  const [box, setBox] = useState(false)
-  
+  const [box, setBox] = useState(false);
+
   return (
     <View style={general.container}>
       <Text style={{ ...FONTS.h1 }}>Login to your account</Text>
@@ -75,7 +76,8 @@ const LoginScreen = () => {
         <Controller
           control={control}
           rules={{
-            required: true,pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            required: true,
+            pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
             validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, value } }) => (
@@ -89,12 +91,15 @@ const LoginScreen = () => {
           name="email"
         />
         {errors.email && (
-          <Text style={{ color: Colors.red }}>Please enter a valid email address.</Text>
+          <Text style={{ color: Colors.red }}>
+            Please enter a valid email address.
+          </Text>
         )}
         <Controller
           control={control}
           rules={{
-            required: true,minLength: 8,
+            required: true,
+            minLength: 8,
             validate: (value) => value.trim().length > 0,
           }}
           render={({ field: { onChange, value } }) => (

@@ -9,6 +9,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useForm, Controller } from "react-hook-form";
 import { loginUser } from '../api/Auth'
 import { UseDispatch } from "react-redux";
+import { loginSuccess } from "../Redux/AuthSlice";
 const LoginScreen = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation();
@@ -24,10 +25,14 @@ const LoginScreen = () => {
   });
   const onSubmit = async (data: any) => {
     try {
-      const response = loginUser(data);
+      const response = await loginUser(data);
       console.log(response);
-      if ((await response).status === 200) {
-        navigation.navigate("HomeTab");
+      if ((await response).status === 200)
+        dispatch(loginSuccess({
+          user: response.data.user,
+          token: response.data.token
+        }))
+      {navigation.navigate("HomeTab");
       } else if (response.data.checkStatus?.status === "Verify Later") {
         navigation.navigate("Verification", { email: data.email });
       } else {

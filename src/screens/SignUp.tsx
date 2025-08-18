@@ -33,7 +33,7 @@ const SignUp = () => {
         dispatch(
           loginSuccess({
             user: {
-              userId: response.data.user.userId,
+              userId: response.data.userId,
               email: response.data.user.email,
               firstname: response.data.user.firstname,
               lastname: response.data.user.lastname,
@@ -42,9 +42,8 @@ const SignUp = () => {
             token: response.data.token,
           })
         );
-       const email = response.data.user.email;
-       navigation.navigate("Verification", { email });
-
+        const email = response.data.user.email;
+        navigation.navigate("Verification", { email });
       } else {
         console.error("Registration failed:", response.data.message);
       }

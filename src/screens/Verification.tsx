@@ -15,14 +15,18 @@ import CustomHeader from "../components/CustomHeader";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigation } from "expo-router";
 import { verifyEmail } from "../api/Auth";
-import { useRoute } from "@react-navigation/native";
+import { RouteProp, useRoute } from "@react-navigation/native";
+type RootStackParamList = {
+  Verification: {
+    email: string;
+  };
+};
 
 const Verification = () => {
-  const route = useRoute();
+  const route = useRoute<RouteProp<RootStackParamList, 'Verification'>>();
   const navigation = useNavigation();
-  const [otp, setOtp] = useState('')
-  const {email} = route.params
-  
+  const [otp, setOtp] = useState('');
+  const { email } = route.params;
   const handleSubmit = async (data: any) => { 
     try {
       const response = await verifyEmail(data)

@@ -1,39 +1,39 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React,{useState} from 'react'
-import general from '../constants/General'
+import { useNavigation } from "expo-router";
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import { StyleSheet, Text, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../Redux/AuthSlice";
+import { registerUser } from "../api/Auth";
+import CustomButton from "../components/CustomButton";
+import CustomInput from "../components/CustomInput";
+import general from "../constants/General";
 import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
-import CustomButton from '../components/CustomButton';
-import { useNavigation } from 'expo-router';
-import CustomInput from '../components/CustomInput';
-import { useForm, Controller } from "react-hook-form";
-import { registerUser } from '../api/Auth';
-import { loginSuccess } from '../Redux/AuthSlice';
-import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
-  const dispatch = useDispatch()
-  const navigation = useNavigation()
-   const {
-     control,
-     handleSubmit,
-     formState: { errors },
-   } = useForm({
-     defaultValues: {
-       firstname: "",
-       password: "",
-       lastname: "",
-       email:""
-     },
-   });
-  const onSubmit = async (data: { email: any; }) => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstname: "",
+      password: "",
+      lastname: "",
+      email: "",
+    },
+  });
+  const onSubmit = async (data: { email: any }) => {
     try {
       const response = await registerUser(data);
       console.log(response);
-      if (response.status === 201) {
+      if (response.status === 400) {
         dispatch(
           loginSuccess({
             user: {
-              id: response.data.user.id,
+              userId: response.data.user.userId,
               email: response.data.user.email,
               firstname: response.data.user.firstname,
               lastname: response.data.user.lastname,
@@ -42,16 +42,18 @@ const SignUp = () => {
             token: response.data.token,
           })
         );
-        navigation.navigate("Verification",{email});
+       const email = response.data.user.email;
+       navigation.navigate("Verification", { email });
+
       } else {
         console.error("Registration failed:", response.data.message);
       }
-    } catch (error) { 
+    } catch (error) {
       console.error("Error during registration:", error);
       alert("Registration failed. Please try again.");
     }
-  };  
-  const [active, setActive] = React.useState('A');
+  };
+  const [active, setActive] = React.useState("A");
   return (
     <View style={general.container}>
       <Text style={{ ...FONTS.h1 }}>Create an Account</Text>
@@ -194,9 +196,9 @@ const SignUp = () => {
       </Text>
     </View>
   );
-}
+};
 
-export default SignUp
+export default SignUp;
 
 const styles = StyleSheet.create({
   text: {

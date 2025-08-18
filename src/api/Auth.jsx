@@ -5,7 +5,7 @@ const makeApiRequest = async (method, endpoint, data) => {
     const response = await client.request({
       method,
       url: endpoint,
-      data, // add the data parameter to the request options
+      data,
     });
     return { data: response.data, status: response.status };
   } catch (error) {

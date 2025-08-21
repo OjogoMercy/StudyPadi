@@ -69,6 +69,44 @@ export const courses = [
     { title: "Terms & Condition", icon: "document-text-outline" },
     { title: "Report a problem", icon: "alert-circle-outline" },
     { title: "Log out", icon: "log-out-outline" },
+];
+  export const examData = [
+    {
+      image: Images.slide1,
+      courseTitle: "INS 302 ",
+      text: "Human Computer Interaction",
+      description:
+        "Covers foundational concepts of HCI and its relevance in modern computing.",
+    },
+    {
+      image: Images.slide2,
+      courseTitle: "CSC 304",
+      text: "Software Engineering.",
+      description:
+        "Focuses on structured development processes and engineering principles.",
+    },
+    {
+      image: Images.slide3,
+      courseTitle: "MGT 306 ",
+      text: "Principles of Management",
+      description:
+        "Explores planning, organizing, leading, and controlling in business contexts.",
+    },
+    {
+      image: Images.slide3,
+      courseTitle: "MGA 202",
+      text: "Introduction to Accounting",
+      description:
+        "Introduces basic accounting principles and bookkeeping techniques.",
+    },
+    {
+      image: Images.slide1,
+      courseTitle: "INS 204",
+      text: "Information Systems",
+      description:
+        "Examines hardware, software, data, procedures, and people in IS.",
+    },
   ];
+
 
  

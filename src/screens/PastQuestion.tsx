@@ -12,7 +12,7 @@ import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import CustomButton from "../components/CustomButton";
 import CustomInput from "../components/CustomInput";
-import { categories, courses, rank } from "../constants/DataBase";
+import {examData } from "../constants/DataBase";
 const PastQuestion = () => {
   const [search,setSearch] = useState('')
   return (
@@ -31,7 +31,8 @@ const PastQuestion = () => {
         containerStyle={{ marginTop: Sizes.body1 }}
       />
       <FlatList
-        data={courses}
+        numColumns={2}
+        data={examData}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.card} activeOpacity={0.8}>
             <Image source={item.image} style={styles.image} />

@@ -6,10 +6,12 @@ import {
   Text,
   TextStyle,
   ViewStyle,
+  TouchableOpacity,
 } from "react-native";
-import { SCREEN_HEIGHT, SCREEN_WIDTH, Colors } from '../constants/Theme'
+import { SCREEN_HEIGHT, SCREEN_WIDTH, Colors, Sizes } from '../constants/Theme'
 import general from "../constants/General";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 type Props = {
   label?: string;
@@ -21,6 +23,7 @@ type Props = {
   containerStyle?: ViewStyle;
   error?: string;
   iconName?: string;
+  secure?:boolean
 };
 
 const CustomInput = ({
@@ -28,11 +31,14 @@ const CustomInput = ({
   value,
   onChangeText,
   placeholder,
+  secure,
   secureTextEntry = false,
   inputStyle,
   containerStyle,
   error,iconName
 }: Props) => {
+
+    const [show, setShow] = React.useState(false);
   return (
     <View style={[styles.container, containerStyle]}>
       {label && <Text style={general.label}>{label}</Text>}
@@ -50,9 +56,18 @@ const CustomInput = ({
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={secure && !show}
           placeholderTextColor={Colors.black}
         />
+        {secure && (
+          <TouchableOpacity activeOpacity={0.7} onPress={() => setShow(!show)}>
+            <Ionicons
+              name={show ? "eye-sharp" : "eye-off"}
+              color={Colors.black}
+              size={Sizes.body2}
+            />
+          </TouchableOpacity>
+        )}
       </View>
       {error && <Text style={general.error}>{error}</Text>}
     </View>

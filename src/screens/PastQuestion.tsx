@@ -33,20 +33,22 @@ const PastQuestion = () => {
       <FlatList
         numColumns={2}
         data={examData}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.card} activeOpacity={0.8}>
             <Image source={item.image} style={styles.image} />
             <Text
               style={{
                 ...FONTS.body3b,
-                color: Colors.orange,
-                margin: Sizes.radius,
+                color: Colors.primary,
+                marginVertical: Sizes.radius,
+                fontWeight:'bold'
               }}
             >
-              {item.title}
+              {item.courseTitle}
             </Text>
-            <Text style={{ ...FONTS.body4 }} numberOfLines={2}>
-              {item.description}
+            <Text style={{ ...FONTS.body5, fontWeight:'bold' }} numberOfLines={2}>
+              {item.text}
             </Text>
           </TouchableOpacity>
         )}
@@ -59,7 +61,7 @@ export default PastQuestion;
 
 const styles = StyleSheet.create({
   image: {
-    width: SCREEN_WIDTH * 0.3,
+    width: SCREEN_WIDTH * 0.33,
     height: SCREEN_HEIGHT * 0.15,
     borderRadius: Sizes.radius,
   },

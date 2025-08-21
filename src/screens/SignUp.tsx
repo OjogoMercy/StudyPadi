@@ -148,7 +148,7 @@ const SignUp = () => {
               onChangeText={onChange}
               placeholder="Enter Your Password"
               iconName={"lock-outline"}
-              secureTextEntry={true}
+              secure={true}
             />
           )}
           name="password"

@@ -50,7 +50,7 @@ function BottomTab() {
         tabBarIcon: ({ focused }) => {
           let iconName;
           if (route.name === "Home") iconName = Icons.home;
-          else if (route.name === "Services") iconName = Icons.book2;
+          else if (route.name === "PastQuestion") iconName = Icons.book2;
           else if (route.name === "Transactions") iconName = Icons.explore;
           else if (route.name === "Profile") iconName = Icons.person2;
           return (
@@ -69,8 +69,8 @@ function BottomTab() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Services" component={LeaderBoard} />
-      <Tab.Screen name="Transactions" component={PastQuestion} />
+      <Tab.Screen name="PastQuestion" component={PastQuestion} />
+      <Tab.Screen name="Transactions" component={LeaderBoard} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

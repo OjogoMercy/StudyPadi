@@ -7,7 +7,7 @@ const initialState = {
     lastname: null,
     email: null,
   },
-  token: null,
+  accessToken: null,
   isAuthenticated: false,
   error: null,
 };
@@ -16,20 +16,20 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loginSuccess: (state, action) => {
-            const {user,token} = action.payload
+            const {user,accessToken} = action.payload
             state.user = {
                 userId: user.userId,
                 email: user.email,
                 firstname: user.firstname,
                 lastname:user.lastname
             }
-            state.token = token;
+            state.accessToken = accessToken;
             state.isAuthenticated = true;
             state.error = null
         },
         logout: (state) => {
             state.user = null,
-                state.token = null,
+                state.accessToken = null,
                 state.isAuthenticated = false
         },
         loginError: (state, action) =>{

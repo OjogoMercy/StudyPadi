@@ -10,6 +10,8 @@ import { useForm, Controller } from "react-hook-form";
 import { loginUser } from "../api/Auth";
 import  {  useDispatch}  from "react-redux";
 import { loginSuccess } from "../Redux/AuthSlice";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const LoginScreen = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation();
@@ -23,17 +25,22 @@ const LoginScreen = () => {
       password: "",
     },
   });
-  const onSubmit = async (data: any) => {
+    const onSubmit = async (data: any) => {
     try {
       const response = await loginUser(data);
       console.log(response);
       if (response.status === 200) {
-        dispatch(
-          loginSuccess({
-            user: response.data.user,
-            token: response.data.token,
-          })
-        );
+        // dispatch(
+        //   loginSuccess({
+        //     user: response.data.user,
+        //     token: response.data.token,
+            
+        //   })         
+        // );
+        const { user, accessToken } = response.data;
+        dispatch(loginSuccess({ user, accessToken }));
+        await AsyncStorage.setItem("token", accessToken);
+        await AsyncStorage.setItem("user", JSON.stringify(user));
         navigation.navigate("HomeTab");
       } else if (response.data.checkStatus?.status === "Verify Later") {
         navigation.navigate("Verification", { email: data.email });
@@ -112,7 +119,7 @@ const LoginScreen = () => {
             />
           )}
           name="password"
-        />{" "}
+        />
         {errors.password && (
           <Text style={{ color: Colors.red }}>
             Password must be at least 8 characters.

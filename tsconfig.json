@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "src/Redux/AuthSlice.js"  ]
+, "src/Redux/AuthSlice.js", "src/screens/useEffect.js"  ]
 }

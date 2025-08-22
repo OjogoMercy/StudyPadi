@@ -37,8 +37,7 @@ const SignUp = () => {
               email: response.data.user.email,
               firstname: response.data.user.firstname,
               lastname: response.data.user.lastname,
-              password: response.data.user.password,
-            },
+                  },
             token: response.data.token,
           })
         );

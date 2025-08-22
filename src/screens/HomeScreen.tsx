@@ -6,8 +6,10 @@ import { useNavigation } from "expo-router";
 import { Images } from "../constants/Images";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { categories,courses,rank } from "../constants/DataBase";
+import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
+  const user = useSelector((state: any) => state.auth.user);
   const navigation = useNavigation();
   return (
     <View style={general.container}>
@@ -15,7 +17,7 @@ const HomeScreen = () => {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image source={Images.avatar2} style={general.profile} />
           <Text style={{ ...FONTS.h3, marginLeft: SCREEN_WIDTH * 0.02 }}>
-            Hi Mercy
+            Hi {user.firstname}!
           </Text>
         </View>
         <Ionicons name="notifications" size={24} color={Colors.primary} />

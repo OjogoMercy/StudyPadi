@@ -6,8 +6,7 @@ import { Colors, FONTS, SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Theme";
 import CustomButton from '../components/CustomButton';
 import { useNavigation } from 'expo-router';
 
-const IntroScreen = () => {
-    const navigation = useNavigation()
+const IntroScreen = ({navigation}) => {
   return (
     <View style={[general.container, { backgroundColor: Colors.sky }]}>
       <Text style={{ alignSelf: "center" }}>English (NG)</Text>
@@ -23,7 +22,7 @@ const IntroScreen = () => {
       <View style={{marginTop:SCREEN_HEIGHT*0.1}}>
         <CustomButton
           title="Log into your account"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.replace("Login")}
           buttonStyle={{
             backgroundColor: Colors.sky,
             borderColor: Colors.black,

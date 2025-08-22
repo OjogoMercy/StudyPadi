@@ -30,13 +30,6 @@ const LoginScreen = () => {
       const response = await loginUser(data);
       console.log(response);
       if (response.status === 200) {
-        // dispatch(
-        //   loginSuccess({
-        //     user: response.data.user,
-        //     token: response.data.token,
-            
-        //   })         
-        // );
         const { user, accessToken } = response.data;
         dispatch(loginSuccess({ user, accessToken }));
         await AsyncStorage.setItem("token", accessToken);

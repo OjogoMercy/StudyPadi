@@ -41,7 +41,7 @@ const Profile = () => {
           <Text style={styles.premium}>
             Premium: {user.isPremium ? "Yes" : "No"}
           </Text>
-          <Text style={styles.points}>{user.points} Points</Text>
+          {/* <Text style={styles.points}>{user.points} Points</Text> */}
         </View>
       </View>
 

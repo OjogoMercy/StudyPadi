@@ -11,17 +11,17 @@ const REMOVE = 'REMOVE'
 //         payload: 'This is a payload'
 //     }
 // }
-const ADD_BOOK = {
-  return: {
+const ADD_BOOK = () =>{
+  return {
     type: ADD,
     payload: 10,
-  },
-};
-const REMOVE_BOOK = {
-  return: {
+  }
+}
+const REMOVE_BOOK = () =>{
+  return{
     type: REMOVE,
-    payload: 5,
-  },
+    payload: 4,
+  }
 };
 const initialState = {
     books: 15,
@@ -47,6 +47,14 @@ const reducer = (state = initialState, action) =>{
 }
 
 const store = createStore(reducer)
-store.dispatch(ADD_BOOK);
-console.log(initialState, store.getState());
+store.dispatch(ADD_BOOK(5));
+console.log( store.getState());
+setInterval(() => {
+    store.dispatch(ADD_BOOK(5))
+    console.log( store.getState());
+}, 2000)
+setInterval(() => {
+    store.dispatch(REMOVE_BOOK(4))
+    console.log( store.getState());
+}, 3500)
 
